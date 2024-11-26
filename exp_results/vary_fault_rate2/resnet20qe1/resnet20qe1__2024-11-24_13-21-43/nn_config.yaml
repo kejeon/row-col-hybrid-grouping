@@ -1,0 +1,12 @@
+acti_bit:
+- 8
+all_gpu_idx:
+- 0
+batch_size: 512
+half_prec: true
+lead_gpu_idx: 0
+model: resnet20qe1
+num_workers: 32
+weight_bit:
+- 4
+- 8

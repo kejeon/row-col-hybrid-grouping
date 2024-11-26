@@ -1,0 +1,2330 @@
+[1mSetting up experiment result directory...[0m
+   - Experiment result directory: [92m./exp_results/vary_fault_rate2/resnet20qe1/resnet20qe1__2024-11-24_13-21-43[0m
+
+[1mUsing nn_config[0m
+   - lead_gpu_idx: [92m0[0m
+   - all_gpu_idx: [92m[0][0m
+   - acti_bit: [92m[8][0m
+   - weight_bit: [92m[4, 8][0m
+   - batch_size: [92m512[0m
+   - num_workers: [92m32[0m
+   - model: [92mresnet20qe1[0m
+   - half_prec: [92mTrue[0m
+
+[1mUsing iter_config[0m
+   - rc_config:
+      - rc_config combo 1:
+         - R2C4
+
+[1mReceived [92m1[0m imc_config[0m
+
+[1m=====================================[0m
+[1m====== EXPERIMENT SETUP SCRIPT ======[0m
+[1m=====================================[0m
+
+[1mSetting up GPUs...[0m
+   - Number of GPUs: [92m1[0m
+   - Lead GPU index: [92mcuda:0[0m
+
+[1mLoading dataset...[0m
+   - Dataset load function generated
+
+[1mCreating model...[0m
+   Model created: [92mresnet20qe1[0m
+
+[1m=====================================[0m
+[1m====== NOISE INJECTION SCRIPT =======[0m
+[1m=====================================[0m
+[1mUsing imc_config 1/1[0m
+
+   - imc_array_dim: [92m64[0m
+   - rc_config:
+      - [92mR2C4[0m
+   - rc_config_prec: [92m[511][0m
+   - cell_precision: [92m4[0m
+   - shift_base: [92m4[0m
+   - p_fault: [92mNone[0m
+   - p_saf0: [92m0.0175[0m
+   - p_saf1: [92m0.0904[0m
+   - num_parallel_processes: [92m4[0m
+
+[1mEvaluating the model...[0m
+   Loading val dataset...
+   Evaluation done: Top1: 82.47%, Top5: 99.18%, Loss: 0.63
+
+[1mRunning adaptive BN...[0m
+   Loading train dataset...
+   Iteration 1/1...
+      AdaBN iteration done: Top1: 88.34%, Top5: 99.63%, Loss: 0.39
+
+[1mEvaluating faulty model...[0m
+   Submitted layers.8.conv1...
+   Submitted layers.8.conv0...
+   Submitted layers.7.conv1...
+   Submitted layers.7.conv0...
+   Submitted layers.6.conv1...
+   Submitted layers.6.conv0...
+   Submitted layers.5.conv1...
+   Submitted layers.5.conv0...
+   Submitted layers.4.conv1...
+   Submitted layers.4.conv0...
+   Submitted layers.3.conv1...
+   Submitted layers.3.conv0...
+   Submitted layers.2.conv1...
+   Submitted layers.2.conv0...
+   Submitted layers.1.conv1...
+   Submitted layers.1.conv0...
+   Submitted layers.0.conv1...
+   Submitted layers.0.conv0...
+   Injecting layers.8.conv1...
+
+   ===== layers.8.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34218[0m
+   - num_out_of_range: [92m2646[0m
+   - num_cont_representable: [92m34201[0m
+   - num_remaining: [92m17[0m
+   - range_time: [92m0.008643150329589844[0m
+   - cont_time: [92m0.004964590072631836[0m
+   - sparsity_time: [92m5.7220458984375e-06[0m
+   - cvm_time: [92m2.397507905960083[0m
+   - total_time: [92m2.411121368408203[0m
+   - num_fawdable: [92m34212[0m
+   - num_cvm: [92m2652[0m
+   - num_cvm_in_remaining: [92m6[0m
+   - num_fawd_in_remaining: [92m11[0m
+   - perc_fawdable: [92m0.9280598958333334[0m
+   - perc_cvm: [92m0.07194010416666667[0m
+   - err_out_of_range: [92m246057[0m
+   - err_reduced_precision: [92m8[0m
+   - err_total: [92m246065[0m
+   - quant_err: [92m0.060150146484375[0m
+   - fault_err: [92m0.061431884765625[0m
+   Injecting layers.8.conv0...
+
+   ===== layers.8.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32839[0m
+   - num_out_of_range: [92m4025[0m
+   - num_cont_representable: [92m32828[0m
+   - num_remaining: [92m11[0m
+   - range_time: [92m0.008567094802856445[0m
+   - cont_time: [92m0.0049746036529541016[0m
+   - sparsity_time: [92m4.76837158203125e-06[0m
+   - cvm_time: [92m2.118126630783081[0m
+   - total_time: [92m2.1316730976104736[0m
+   - num_fawdable: [92m32834[0m
+   - num_cvm: [92m4030[0m
+   - num_cvm_in_remaining: [92m5[0m
+   - num_fawd_in_remaining: [92m6[0m
+   - perc_fawdable: [92m0.8906792534722222[0m
+   - perc_cvm: [92m0.10932074652777778[0m
+   - err_out_of_range: [92m381501[0m
+   - err_reduced_precision: [92m13[0m
+   - err_total: [92m381514[0m
+   - quant_err: [92m0.0347900390625[0m
+   - fault_err: [92m0.0360107421875[0m
+   Injecting layers.7.conv1...
+
+   ===== layers.7.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m33928[0m
+   - num_out_of_range: [92m2936[0m
+   - num_cont_representable: [92m33914[0m
+   - num_remaining: [92m14[0m
+   - range_time: [92m0.00838923454284668[0m
+   - cont_time: [92m0.004960298538208008[0m
+   - sparsity_time: [92m2.86102294921875e-06[0m
+   - cvm_time: [92m2.057049512863159[0m
+   - total_time: [92m2.070401906967163[0m
+   - num_fawdable: [92m33925[0m
+   - num_cvm: [92m2939[0m
+   - num_cvm_in_remaining: [92m3[0m
+   - num_fawd_in_remaining: [92m11[0m
+   - perc_fawdable: [92m0.9202745225694444[0m
+   - perc_cvm: [92m0.07972547743055555[0m
+   - err_out_of_range: [92m263926[0m
+   - err_reduced_precision: [92m5[0m
+   - err_total: [92m263931[0m
+   - quant_err: [92m0.052093505859375[0m
+   - fault_err: [92m0.053253173828125[0m
+   Injecting layers.7.conv0...
+
+   ===== layers.7.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32538[0m
+   - num_out_of_range: [92m4326[0m
+   - num_cont_representable: [92m32517[0m
+   - num_remaining: [92m21[0m
+   - range_time: [92m0.008968830108642578[0m
+   - cont_time: [92m0.0049211978912353516[0m
+   - sparsity_time: [92m4.0531158447265625e-06[0m
+   - cvm_time: [92m2.015887498855591[0m
+   - total_time: [92m2.0297815799713135[0m
+   - num_fawdable: [92m32534[0m
+   - num_cvm: [92m4330[0m
+   - num_cvm_in_remaining: [92m4[0m
+   - num_fawd_in_remaining: [92m17[0m
+   - perc_fawdable: [92m0.8825412326388888[0m
+   - perc_cvm: [92m0.1174587673611111[0m
+   - err_out_of_range: [92m422060[0m
+   - err_reduced_precision: [92m7[0m
+   - err_total: [92m422067[0m
+   - quant_err: [92m0.034576416015625[0m
+   - fault_err: [92m0.035919189453125[0m
+   Injecting layers.6.conv1...
+
+   ===== layers.6.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34072[0m
+   - num_out_of_range: [92m2792[0m
+   - num_cont_representable: [92m34059[0m
+   - num_remaining: [92m13[0m
+   - range_time: [92m0.008535385131835938[0m
+   - cont_time: [92m0.004930734634399414[0m
+   - sparsity_time: [92m4.76837158203125e-06[0m
+   - cvm_time: [92m2.0177114009857178[0m
+   - total_time: [92m2.031182289123535[0m
+   - num_fawdable: [92m34067[0m
+   - num_cvm: [92m2797[0m
+   - num_cvm_in_remaining: [92m5[0m
+   - num_fawd_in_remaining: [92m8[0m
+   - perc_fawdable: [92m0.9241265190972222[0m
+   - perc_cvm: [92m0.07587348090277778[0m
+   - err_out_of_range: [92m263576[0m
+   - err_reduced_precision: [92m7[0m
+   - err_total: [92m263583[0m
+   - quant_err: [92m0.046142578125[0m
+   - fault_err: [92m0.04718017578125[0m
+   Injecting layers.6.conv0...
+
+   ===== layers.6.conv0 =====
+   - num_q_codes: [92m18432[0m
+   - num_in_range: [92m15911[0m
+   - num_out_of_range: [92m2521[0m
+   - num_cont_representable: [92m15910[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0053615570068359375[0m
+   - cont_time: [92m0.002732992172241211[0m
+   - sparsity_time: [92m5.4836273193359375e-06[0m
+   - cvm_time: [92m2.4115099906921387[0m
+   - total_time: [92m2.419610023498535[0m
+   - num_fawdable: [92m15911[0m
+   - num_cvm: [92m2521[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8632269965277778[0m
+   - perc_cvm: [92m0.1367730034722222[0m
+   - err_out_of_range: [92m238909[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m238909[0m
+   - quant_err: [92m0.0350341796875[0m
+   - fault_err: [92m0.03668212890625[0m
+   Injecting layers.5.conv1...
+
+   ===== layers.5.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8288[0m
+   - num_out_of_range: [92m928[0m
+   - num_cont_representable: [92m8287[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0030274391174316406[0m
+   - cont_time: [92m0.0013747215270996094[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.5328710079193115[0m
+   - total_time: [92m2.5372769832611084[0m
+   - num_fawdable: [92m8288[0m
+   - num_cvm: [92m928[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8993055555555556[0m
+   - perc_cvm: [92m0.10069444444444445[0m
+   - err_out_of_range: [92m84168[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m84168[0m
+   - quant_err: [92m0.049957275390625[0m
+   - fault_err: [92m0.051544189453125[0m
+   Injecting layers.5.conv0...
+
+   ===== layers.5.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7920[0m
+   - num_out_of_range: [92m1296[0m
+   - num_cont_representable: [92m7916[0m
+   - num_remaining: [92m4[0m
+   - range_time: [92m0.0029883384704589844[0m
+   - cont_time: [92m0.0014340877532958984[0m
+   - sparsity_time: [92m4.76837158203125e-06[0m
+   - cvm_time: [92m2.539257049560547[0m
+   - total_time: [92m2.543684244155884[0m
+   - num_fawdable: [92m7918[0m
+   - num_cvm: [92m1298[0m
+   - num_cvm_in_remaining: [92m2[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8591579861111112[0m
+   - perc_cvm: [92m0.1408420138888889[0m
+   - err_out_of_range: [92m124312[0m
+   - err_reduced_precision: [92m4[0m
+   - err_total: [92m124316[0m
+   - quant_err: [92m0.0305023193359375[0m
+   - fault_err: [92m0.0321044921875[0m
+   Injecting layers.4.conv1...
+
+   ===== layers.4.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8445[0m
+   - num_out_of_range: [92m771[0m
+   - num_cont_representable: [92m8440[0m
+   - num_remaining: [92m5[0m
+   - range_time: [92m0.0031495094299316406[0m
+   - cont_time: [92m0.0013883113861083984[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.431260824203491[0m
+   - total_time: [92m2.435802459716797[0m
+   - num_fawdable: [92m8443[0m
+   - num_cvm: [92m773[0m
+   - num_cvm_in_remaining: [92m2[0m
+   - num_fawd_in_remaining: [92m3[0m
+   - perc_fawdable: [92m0.9161241319444444[0m
+   - perc_cvm: [92m0.08387586805555555[0m
+   - err_out_of_range: [92m66682[0m
+   - err_reduced_precision: [92m2[0m
+   - err_total: [92m66684[0m
+   - quant_err: [92m0.049468994140625[0m
+   - fault_err: [92m0.050628662109375[0m
+   Injecting layers.4.conv0...
+
+   ===== layers.4.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7907[0m
+   - num_out_of_range: [92m1309[0m
+   - num_cont_representable: [92m7904[0m
+   - num_remaining: [92m3[0m
+   - range_time: [92m0.0036487579345703125[0m
+   - cont_time: [92m0.0016617774963378906[0m
+   - sparsity_time: [92m4.5299530029296875e-06[0m
+   - cvm_time: [92m2.1387112140655518[0m
+   - total_time: [92m2.144026279449463[0m
+   - num_fawdable: [92m7905[0m
+   - num_cvm: [92m1311[0m
+   - num_cvm_in_remaining: [92m2[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8577473958333334[0m
+   - perc_cvm: [92m0.14225260416666666[0m
+   - err_out_of_range: [92m119249[0m
+   - err_reduced_precision: [92m3[0m
+   - err_total: [92m119252[0m
+   - quant_err: [92m0.03033447265625[0m
+   - fault_err: [92m0.0318603515625[0m
+   Injecting layers.3.conv1...
+
+   ===== layers.3.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8258[0m
+   - num_out_of_range: [92m958[0m
+   - num_cont_representable: [92m8252[0m
+   - num_remaining: [92m6[0m
+   - range_time: [92m0.0028257369995117188[0m
+   - cont_time: [92m0.0012843608856201172[0m
+   - sparsity_time: [92m2.86102294921875e-06[0m
+   - cvm_time: [92m2.5843634605407715[0m
+   - total_time: [92m2.5884764194488525[0m
+   - num_fawdable: [92m8257[0m
+   - num_cvm: [92m959[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m5[0m
+   - perc_fawdable: [92m0.8959418402777778[0m
+   - perc_cvm: [92m0.10405815972222222[0m
+   - err_out_of_range: [92m84521[0m
+   - err_reduced_precision: [92m2[0m
+   - err_total: [92m84523[0m
+   - quant_err: [92m0.04864501953125[0m
+   - fault_err: [92m0.050140380859375[0m
+   Injecting layers.3.conv0...
+
+   ===== layers.3.conv0 =====
+   - num_q_codes: [92m4608[0m
+   - num_in_range: [92m3735[0m
+   - num_out_of_range: [92m873[0m
+   - num_cont_representable: [92m3734[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.013566732406616211[0m
+   - cont_time: [92m0.005122661590576172[0m
+   - sparsity_time: [92m5.0067901611328125e-06[0m
+   - cvm_time: [92m1.9531974792480469[0m
+   - total_time: [92m1.9718918800354004[0m
+   - num_fawdable: [92m3734[0m
+   - num_cvm: [92m874[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8103298611111112[0m
+   - perc_cvm: [92m0.1896701388888889[0m
+   - err_out_of_range: [92m79261[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m79262[0m
+   - quant_err: [92m0.034637451171875[0m
+   - fault_err: [92m0.037017822265625[0m
+   Injecting layers.2.conv1...
+
+   ===== layers.2.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2078[0m
+   - num_out_of_range: [92m226[0m
+   - num_cont_representable: [92m2077[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0015254020690917969[0m
+   - cont_time: [92m0.0007846355438232422[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.356377601623535[0m
+   - total_time: [92m2.3586909770965576[0m
+   - num_fawdable: [92m2077[0m
+   - num_cvm: [92m227[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.9014756944444444[0m
+   - perc_cvm: [92m0.09852430555555555[0m
+   - err_out_of_range: [92m20579[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m20580[0m
+   - quant_err: [92m0.04669189453125[0m
+   - fault_err: [92m0.048095703125[0m
+   Injecting layers.2.conv0...
+
+   ===== layers.2.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1926[0m
+   - num_out_of_range: [92m378[0m
+   - num_cont_representable: [92m1926[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0051593780517578125[0m
+   - cont_time: [92m0.0003666877746582031[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.0742416381835938e-05[0m
+   - total_time: [92m0.0055501461029052734[0m
+   - num_fawdable: [92m1926[0m
+   - num_cvm: [92m378[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8359375[0m
+   - perc_cvm: [92m0.1640625[0m
+   - err_out_of_range: [92m33719[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m33719[0m
+   - quant_err: [92m0.031494140625[0m
+   - fault_err: [92m0.03338623046875[0m
+   Injecting layers.1.conv1...
+
+   ===== layers.1.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2056[0m
+   - num_out_of_range: [92m248[0m
+   - num_cont_representable: [92m2056[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0008072853088378906[0m
+   - cont_time: [92m0.00046515464782714844[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.0265579223632812e-05[0m
+   - total_time: [92m0.0012960433959960938[0m
+   - num_fawdable: [92m2056[0m
+   - num_cvm: [92m248[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8923611111111112[0m
+   - perc_cvm: [92m0.1076388888888889[0m
+   - err_out_of_range: [92m21570[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m21570[0m
+   - quant_err: [92m0.047760009765625[0m
+   - fault_err: [92m0.04931640625[0m
+   Injecting layers.1.conv0...
+
+   ===== layers.1.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1905[0m
+   - num_out_of_range: [92m399[0m
+   - num_cont_representable: [92m1904[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0007345676422119141[0m
+   - cont_time: [92m0.0003941059112548828[0m
+   - sparsity_time: [92m2.86102294921875e-06[0m
+   - cvm_time: [92m1.9989781379699707[0m
+   - total_time: [92m2.0001096725463867[0m
+   - num_fawdable: [92m1904[0m
+   - num_cvm: [92m400[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8263888888888888[0m
+   - perc_cvm: [92m0.1736111111111111[0m
+   - err_out_of_range: [92m38575[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m38576[0m
+   - quant_err: [92m0.0301055908203125[0m
+   - fault_err: [92m0.032257080078125[0m
+   Injecting layers.0.conv1...
+
+   ===== layers.0.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2082[0m
+   - num_out_of_range: [92m222[0m
+   - num_cont_representable: [92m2081[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0007033348083496094[0m
+   - cont_time: [92m0.0003521442413330078[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.6360559463500977[0m
+   - total_time: [92m2.637115240097046[0m
+   - num_fawdable: [92m2082[0m
+   - num_cvm: [92m222[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.9036458333333334[0m
+   - perc_cvm: [92m0.09635416666666667[0m
+   - err_out_of_range: [92m22050[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m22050[0m
+   - quant_err: [92m0.04766845703125[0m
+   - fault_err: [92m0.04913330078125[0m
+   Injecting layers.0.conv0...
+
+   ===== layers.0.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1922[0m
+   - num_out_of_range: [92m382[0m
+   - num_cont_representable: [92m1922[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0010912418365478516[0m
+   - cont_time: [92m0.0004839897155761719[0m
+   - sparsity_time: [92m2.384185791015625e-06[0m
+   - cvm_time: [92m3.9577484130859375e-05[0m
+   - total_time: [92m0.0016171932220458984[0m
+   - num_fawdable: [92m1922[0m
+   - num_cvm: [92m382[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8342013888888888[0m
+   - perc_cvm: [92m0.1657986111111111[0m
+   - err_out_of_range: [92m36937[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m36937[0m
+   - quant_err: [92m0.03125[0m
+   - fault_err: [92m0.0333251953125[0m
+
+   Noise Injection Time: 11.43s
+
+   Trial 1/5 done: Top1: 85.77%, Top5: 99.48%, Loss: 0.46
+   Submitted layers.8.conv1...
+   Submitted layers.8.conv0...
+   Submitted layers.7.conv1...
+   Submitted layers.7.conv0...
+   Submitted layers.6.conv1...
+   Submitted layers.6.conv0...
+   Submitted layers.5.conv1...
+   Submitted layers.5.conv0...
+   Submitted layers.4.conv1...
+   Submitted layers.4.conv0...
+   Submitted layers.3.conv1...
+   Submitted layers.3.conv0...
+   Submitted layers.2.conv1...
+   Submitted layers.2.conv0...
+   Submitted layers.1.conv1...
+   Submitted layers.1.conv0...
+   Submitted layers.0.conv1...
+   Submitted layers.0.conv0...
+   Injecting layers.8.conv1...
+
+   ===== layers.8.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34290[0m
+   - num_out_of_range: [92m2574[0m
+   - num_cont_representable: [92m34274[0m
+   - num_remaining: [92m16[0m
+   - range_time: [92m0.008534669876098633[0m
+   - cont_time: [92m0.0049250125885009766[0m
+   - sparsity_time: [92m5.7220458984375e-06[0m
+   - cvm_time: [92m2.3880319595336914[0m
+   - total_time: [92m2.4014973640441895[0m
+   - num_fawdable: [92m34284[0m
+   - num_cvm: [92m2580[0m
+   - num_cvm_in_remaining: [92m6[0m
+   - num_fawd_in_remaining: [92m10[0m
+   - perc_fawdable: [92m0.9300130208333334[0m
+   - perc_cvm: [92m0.06998697916666667[0m
+   - err_out_of_range: [92m238958[0m
+   - err_reduced_precision: [92m10[0m
+   - err_total: [92m238968[0m
+   - quant_err: [92m0.060150146484375[0m
+   - fault_err: [92m0.0614013671875[0m
+   Injecting layers.8.conv0...
+
+   ===== layers.8.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32636[0m
+   - num_out_of_range: [92m4228[0m
+   - num_cont_representable: [92m32629[0m
+   - num_remaining: [92m7[0m
+   - range_time: [92m0.00848841667175293[0m
+   - cont_time: [92m0.0049512386322021484[0m
+   - sparsity_time: [92m4.5299530029296875e-06[0m
+   - cvm_time: [92m2.5597736835479736[0m
+   - total_time: [92m2.5732178688049316[0m
+   - num_fawdable: [92m32634[0m
+   - num_cvm: [92m4230[0m
+   - num_cvm_in_remaining: [92m2[0m
+   - num_fawd_in_remaining: [92m5[0m
+   - perc_fawdable: [92m0.88525390625[0m
+   - perc_cvm: [92m0.11474609375[0m
+   - err_out_of_range: [92m395658[0m
+   - err_reduced_precision: [92m3[0m
+   - err_total: [92m395661[0m
+   - quant_err: [92m0.0347900390625[0m
+   - fault_err: [92m0.03607177734375[0m
+   Injecting layers.7.conv1...
+
+   ===== layers.7.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34044[0m
+   - num_out_of_range: [92m2820[0m
+   - num_cont_representable: [92m34025[0m
+   - num_remaining: [92m19[0m
+   - range_time: [92m0.008588075637817383[0m
+   - cont_time: [92m0.004940986633300781[0m
+   - sparsity_time: [92m7.152557373046875e-06[0m
+   - cvm_time: [92m3.0341808795928955[0m
+   - total_time: [92m3.0477170944213867[0m
+   - num_fawdable: [92m34036[0m
+   - num_cvm: [92m2828[0m
+   - num_cvm_in_remaining: [92m8[0m
+   - num_fawd_in_remaining: [92m11[0m
+   - perc_fawdable: [92m0.9232855902777778[0m
+   - perc_cvm: [92m0.07671440972222222[0m
+   - err_out_of_range: [92m253163[0m
+   - err_reduced_precision: [92m10[0m
+   - err_total: [92m253173[0m
+   - quant_err: [92m0.052093505859375[0m
+   - fault_err: [92m0.05322265625[0m
+   Injecting layers.7.conv0...
+
+   ===== layers.7.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32613[0m
+   - num_out_of_range: [92m4251[0m
+   - num_cont_representable: [92m32596[0m
+   - num_remaining: [92m17[0m
+   - range_time: [92m0.009634256362915039[0m
+   - cont_time: [92m0.0050580501556396484[0m
+   - sparsity_time: [92m5.0067901611328125e-06[0m
+   - cvm_time: [92m2.6964542865753174[0m
+   - total_time: [92m2.711151599884033[0m
+   - num_fawdable: [92m32605[0m
+   - num_cvm: [92m4259[0m
+   - num_cvm_in_remaining: [92m8[0m
+   - num_fawd_in_remaining: [92m9[0m
+   - perc_fawdable: [92m0.8844672309027778[0m
+   - perc_cvm: [92m0.11553276909722222[0m
+   - err_out_of_range: [92m397991[0m
+   - err_reduced_precision: [92m10[0m
+   - err_total: [92m398001[0m
+   - quant_err: [92m0.034576416015625[0m
+   - fault_err: [92m0.035858154296875[0m
+   Injecting layers.6.conv1...
+
+   ===== layers.6.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34088[0m
+   - num_out_of_range: [92m2776[0m
+   - num_cont_representable: [92m34076[0m
+   - num_remaining: [92m12[0m
+   - range_time: [92m0.009099483489990234[0m
+   - cont_time: [92m0.005068540573120117[0m
+   - sparsity_time: [92m6.67572021484375e-06[0m
+   - cvm_time: [92m2.906308650970459[0m
+   - total_time: [92m2.920483350753784[0m
+   - num_fawdable: [92m34083[0m
+   - num_cvm: [92m2781[0m
+   - num_cvm_in_remaining: [92m5[0m
+   - num_fawd_in_remaining: [92m7[0m
+   - perc_fawdable: [92m0.924560546875[0m
+   - perc_cvm: [92m0.075439453125[0m
+   - err_out_of_range: [92m259447[0m
+   - err_reduced_precision: [92m7[0m
+   - err_total: [92m259454[0m
+   - quant_err: [92m0.046142578125[0m
+   - fault_err: [92m0.047149658203125[0m
+   Injecting layers.6.conv0...
+
+   ===== layers.6.conv0 =====
+   - num_q_codes: [92m18432[0m
+   - num_in_range: [92m15863[0m
+   - num_out_of_range: [92m2569[0m
+   - num_cont_representable: [92m15858[0m
+   - num_remaining: [92m5[0m
+   - range_time: [92m0.004978179931640625[0m
+   - cont_time: [92m0.002482891082763672[0m
+   - sparsity_time: [92m4.5299530029296875e-06[0m
+   - cvm_time: [92m2.625154733657837[0m
+   - total_time: [92m2.632620334625244[0m
+   - num_fawdable: [92m15859[0m
+   - num_cvm: [92m2573[0m
+   - num_cvm_in_remaining: [92m4[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8604058159722222[0m
+   - perc_cvm: [92m0.1395941840277778[0m
+   - err_out_of_range: [92m246874[0m
+   - err_reduced_precision: [92m8[0m
+   - err_total: [92m246882[0m
+   - quant_err: [92m0.0350341796875[0m
+   - fault_err: [92m0.0367431640625[0m
+   Injecting layers.5.conv1...
+
+   ===== layers.5.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8301[0m
+   - num_out_of_range: [92m915[0m
+   - num_cont_representable: [92m8298[0m
+   - num_remaining: [92m3[0m
+   - range_time: [92m0.01230764389038086[0m
+   - cont_time: [92m0.0013518333435058594[0m
+   - sparsity_time: [92m4.76837158203125e-06[0m
+   - cvm_time: [92m2.9373435974121094[0m
+   - total_time: [92m2.951007843017578[0m
+   - num_fawdable: [92m8300[0m
+   - num_cvm: [92m916[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.9006076388888888[0m
+   - perc_cvm: [92m0.0993923611111111[0m
+   - err_out_of_range: [92m86665[0m
+   - err_reduced_precision: [92m3[0m
+   - err_total: [92m86668[0m
+   - quant_err: [92m0.049957275390625[0m
+   - fault_err: [92m0.05157470703125[0m
+   Injecting layers.5.conv0...
+
+   ===== layers.5.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7863[0m
+   - num_out_of_range: [92m1353[0m
+   - num_cont_representable: [92m7861[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.009986400604248047[0m
+   - cont_time: [92m0.007290840148925781[0m
+   - sparsity_time: [92m4.5299530029296875e-06[0m
+   - cvm_time: [92m2.501880407333374[0m
+   - total_time: [92m2.519162178039551[0m
+   - num_fawdable: [92m7863[0m
+   - num_cvm: [92m1353[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8531901041666666[0m
+   - perc_cvm: [92m0.14680989583333334[0m
+   - err_out_of_range: [92m128998[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m128998[0m
+   - quant_err: [92m0.0305023193359375[0m
+   - fault_err: [92m0.03216552734375[0m
+   Injecting layers.4.conv1...
+
+   ===== layers.4.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8429[0m
+   - num_out_of_range: [92m787[0m
+   - num_cont_representable: [92m8425[0m
+   - num_remaining: [92m4[0m
+   - range_time: [92m0.018921613693237305[0m
+   - cont_time: [92m0.0013165473937988281[0m
+   - sparsity_time: [92m4.291534423828125e-06[0m
+   - cvm_time: [92m2.76851224899292[0m
+   - total_time: [92m2.78875470161438[0m
+   - num_fawdable: [92m8428[0m
+   - num_cvm: [92m788[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m3[0m
+   - perc_fawdable: [92m0.9144965277777778[0m
+   - perc_cvm: [92m0.08550347222222222[0m
+   - err_out_of_range: [92m72513[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m72514[0m
+   - quant_err: [92m0.049468994140625[0m
+   - fault_err: [92m0.05072021484375[0m
+   Injecting layers.4.conv0...
+
+   ===== layers.4.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7948[0m
+   - num_out_of_range: [92m1268[0m
+   - num_cont_representable: [92m7944[0m
+   - num_remaining: [92m4[0m
+   - range_time: [92m0.005347251892089844[0m
+   - cont_time: [92m0.0022051334381103516[0m
+   - sparsity_time: [92m2.86102294921875e-06[0m
+   - cvm_time: [92m2.6227850914001465[0m
+   - total_time: [92m2.630340337753296[0m
+   - num_fawdable: [92m7945[0m
+   - num_cvm: [92m1271[0m
+   - num_cvm_in_remaining: [92m3[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8620876736111112[0m
+   - perc_cvm: [92m0.1379123263888889[0m
+   - err_out_of_range: [92m122375[0m
+   - err_reduced_precision: [92m8[0m
+   - err_total: [92m122383[0m
+   - quant_err: [92m0.03033447265625[0m
+   - fault_err: [92m0.031890869140625[0m
+   Injecting layers.3.conv1...
+
+   ===== layers.3.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8241[0m
+   - num_out_of_range: [92m975[0m
+   - num_cont_representable: [92m8238[0m
+   - num_remaining: [92m3[0m
+   - range_time: [92m0.00705265998840332[0m
+   - cont_time: [92m0.004053831100463867[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.728928565979004[0m
+   - total_time: [92m2.7400383949279785[0m
+   - num_fawdable: [92m8241[0m
+   - num_cvm: [92m975[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m3[0m
+   - perc_fawdable: [92m0.8942057291666666[0m
+   - perc_cvm: [92m0.10579427083333333[0m
+   - err_out_of_range: [92m91506[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m91506[0m
+   - quant_err: [92m0.04864501953125[0m
+   - fault_err: [92m0.050262451171875[0m
+   Injecting layers.3.conv0...
+
+   ===== layers.3.conv0 =====
+   - num_q_codes: [92m4608[0m
+   - num_in_range: [92m3817[0m
+   - num_out_of_range: [92m791[0m
+   - num_cont_representable: [92m3816[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.002995729446411133[0m
+   - cont_time: [92m0.0023288726806640625[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.6726813316345215[0m
+   - total_time: [92m2.678009271621704[0m
+   - num_fawdable: [92m3816[0m
+   - num_cvm: [92m792[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.828125[0m
+   - perc_cvm: [92m0.171875[0m
+   - err_out_of_range: [92m76054[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m76055[0m
+   - quant_err: [92m0.034637451171875[0m
+   - fault_err: [92m0.03692626953125[0m
+   Injecting layers.2.conv1...
+
+   ===== layers.2.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2103[0m
+   - num_out_of_range: [92m201[0m
+   - num_cont_representable: [92m2101[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.0007708072662353516[0m
+   - cont_time: [92m0.00036978721618652344[0m
+   - sparsity_time: [92m2.86102294921875e-06[0m
+   - cvm_time: [92m2.031344175338745[0m
+   - total_time: [92m2.032487630844116[0m
+   - num_fawdable: [92m2102[0m
+   - num_cvm: [92m202[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.9123263888888888[0m
+   - perc_cvm: [92m0.0876736111111111[0m
+   - err_out_of_range: [92m21095[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m21096[0m
+   - quant_err: [92m0.04669189453125[0m
+   - fault_err: [92m0.048126220703125[0m
+   Injecting layers.2.conv0...
+
+   ===== layers.2.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1932[0m
+   - num_out_of_range: [92m372[0m
+   - num_cont_representable: [92m1932[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0007739067077636719[0m
+   - cont_time: [92m0.00036025047302246094[0m
+   - sparsity_time: [92m5.936622619628906e-05[0m
+   - cvm_time: [92m2.7179718017578125e-05[0m
+   - total_time: [92m0.001220703125[0m
+   - num_fawdable: [92m1932[0m
+   - num_cvm: [92m372[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8385416666666666[0m
+   - perc_cvm: [92m0.16145833333333334[0m
+   - err_out_of_range: [92m36331[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m36331[0m
+   - quant_err: [92m0.031494140625[0m
+   - fault_err: [92m0.033538818359375[0m
+   Injecting layers.1.conv1...
+
+   ===== layers.1.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2021[0m
+   - num_out_of_range: [92m283[0m
+   - num_cont_representable: [92m2019[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.0011134147644042969[0m
+   - cont_time: [92m0.000492095947265625[0m
+   - sparsity_time: [92m2.86102294921875e-06[0m
+   - cvm_time: [92m2.34326171875[0m
+   - total_time: [92m2.344870090484619[0m
+   - num_fawdable: [92m2021[0m
+   - num_cvm: [92m283[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8771701388888888[0m
+   - perc_cvm: [92m0.1228298611111111[0m
+   - err_out_of_range: [92m25355[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m25355[0m
+   - quant_err: [92m0.047760009765625[0m
+   - fault_err: [92m0.049560546875[0m
+   Injecting layers.1.conv0...
+
+   ===== layers.1.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1929[0m
+   - num_out_of_range: [92m375[0m
+   - num_cont_representable: [92m1929[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0011930465698242188[0m
+   - cont_time: [92m0.0004477500915527344[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m4.291534423828125e-05[0m
+   - total_time: [92m0.0016870498657226562[0m
+   - num_fawdable: [92m1929[0m
+   - num_cvm: [92m375[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8372395833333334[0m
+   - perc_cvm: [92m0.16276041666666666[0m
+   - err_out_of_range: [92m33426[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m33426[0m
+   - quant_err: [92m0.0301055908203125[0m
+   - fault_err: [92m0.031951904296875[0m
+   Injecting layers.0.conv1...
+
+   ===== layers.0.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2072[0m
+   - num_out_of_range: [92m232[0m
+   - num_cont_representable: [92m2070[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.0008323192596435547[0m
+   - cont_time: [92m0.00037217140197753906[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.2671189308166504[0m
+   - total_time: [92m2.268326759338379[0m
+   - num_fawdable: [92m2072[0m
+   - num_cvm: [92m232[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8993055555555556[0m
+   - perc_cvm: [92m0.10069444444444445[0m
+   - err_out_of_range: [92m21068[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m21068[0m
+   - quant_err: [92m0.04766845703125[0m
+   - fault_err: [92m0.049072265625[0m
+   Injecting layers.0.conv0...
+
+   ===== layers.0.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1907[0m
+   - num_out_of_range: [92m397[0m
+   - num_cont_representable: [92m1906[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0008969306945800781[0m
+   - cont_time: [92m0.00043392181396484375[0m
+   - sparsity_time: [92m1.9073486328125e-06[0m
+   - cvm_time: [92m2.4310972690582275[0m
+   - total_time: [92m2.4324300289154053[0m
+   - num_fawdable: [92m1907[0m
+   - num_cvm: [92m397[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8276909722222222[0m
+   - perc_cvm: [92m0.1723090277777778[0m
+   - err_out_of_range: [92m39136[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m39136[0m
+   - quant_err: [92m0.03125[0m
+   - fault_err: [92m0.033447265625[0m
+
+   Noise Injection Time: 11.49s
+
+   Trial 2/5 done: Top1: 85.22%, Top5: 99.50%, Loss: 0.49
+   Submitted layers.8.conv1...
+   Submitted layers.8.conv0...
+   Submitted layers.7.conv1...
+   Submitted layers.7.conv0...
+   Submitted layers.6.conv1...
+   Submitted layers.6.conv0...
+   Submitted layers.5.conv1...
+   Submitted layers.5.conv0...
+   Submitted layers.4.conv1...
+   Submitted layers.4.conv0...
+   Submitted layers.3.conv1...
+   Submitted layers.3.conv0...
+   Submitted layers.2.conv1...
+   Submitted layers.2.conv0...
+   Submitted layers.1.conv1...
+   Submitted layers.1.conv0...
+   Submitted layers.0.conv1...
+   Submitted layers.0.conv0...
+   Injecting layers.8.conv1...
+
+   ===== layers.8.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34339[0m
+   - num_out_of_range: [92m2525[0m
+   - num_cont_representable: [92m34319[0m
+   - num_remaining: [92m20[0m
+   - range_time: [92m0.012581586837768555[0m
+   - cont_time: [92m0.005042076110839844[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.263881206512451[0m
+   - total_time: [92m2.281508684158325[0m
+   - num_fawdable: [92m34329[0m
+   - num_cvm: [92m2535[0m
+   - num_cvm_in_remaining: [92m10[0m
+   - num_fawd_in_remaining: [92m10[0m
+   - perc_fawdable: [92m0.9312337239583334[0m
+   - perc_cvm: [92m0.06876627604166667[0m
+   - err_out_of_range: [92m236380[0m
+   - err_reduced_precision: [92m17[0m
+   - err_total: [92m236397[0m
+   - quant_err: [92m0.060150146484375[0m
+   - fault_err: [92m0.0614013671875[0m
+   Injecting layers.8.conv0...
+
+   ===== layers.8.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32741[0m
+   - num_out_of_range: [92m4123[0m
+   - num_cont_representable: [92m32725[0m
+   - num_remaining: [92m16[0m
+   - range_time: [92m0.012365579605102539[0m
+   - cont_time: [92m0.0069925785064697266[0m
+   - sparsity_time: [92m6.198883056640625e-06[0m
+   - cvm_time: [92m2.220137357711792[0m
+   - total_time: [92m2.239501714706421[0m
+   - num_fawdable: [92m32735[0m
+   - num_cvm: [92m4129[0m
+   - num_cvm_in_remaining: [92m6[0m
+   - num_fawd_in_remaining: [92m10[0m
+   - perc_fawdable: [92m0.8879937065972222[0m
+   - perc_cvm: [92m0.11200629340277778[0m
+   - err_out_of_range: [92m385161[0m
+   - err_reduced_precision: [92m19[0m
+   - err_total: [92m385180[0m
+   - quant_err: [92m0.0347900390625[0m
+   - fault_err: [92m0.036041259765625[0m
+   Injecting layers.7.conv1...
+
+   ===== layers.7.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34013[0m
+   - num_out_of_range: [92m2851[0m
+   - num_cont_representable: [92m34001[0m
+   - num_remaining: [92m12[0m
+   - range_time: [92m0.014197349548339844[0m
+   - cont_time: [92m0.007982254028320312[0m
+   - sparsity_time: [92m6.4373016357421875e-06[0m
+   - cvm_time: [92m2.215101480484009[0m
+   - total_time: [92m2.2372875213623047[0m
+   - num_fawdable: [92m34010[0m
+   - num_cvm: [92m2854[0m
+   - num_cvm_in_remaining: [92m3[0m
+   - num_fawd_in_remaining: [92m9[0m
+   - perc_fawdable: [92m0.9225802951388888[0m
+   - perc_cvm: [92m0.0774197048611111[0m
+   - err_out_of_range: [92m267054[0m
+   - err_reduced_precision: [92m4[0m
+   - err_total: [92m267058[0m
+   - quant_err: [92m0.052093505859375[0m
+   - fault_err: [92m0.05328369140625[0m
+   Injecting layers.7.conv0...
+
+   ===== layers.7.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32607[0m
+   - num_out_of_range: [92m4257[0m
+   - num_cont_representable: [92m32596[0m
+   - num_remaining: [92m11[0m
+   - range_time: [92m0.014374256134033203[0m
+   - cont_time: [92m0.006926774978637695[0m
+   - sparsity_time: [92m6.67572021484375e-06[0m
+   - cvm_time: [92m2.1949093341827393[0m
+   - total_time: [92m2.216217041015625[0m
+   - num_fawdable: [92m32604[0m
+   - num_cvm: [92m4260[0m
+   - num_cvm_in_remaining: [92m3[0m
+   - num_fawd_in_remaining: [92m8[0m
+   - perc_fawdable: [92m0.8844401041666666[0m
+   - perc_cvm: [92m0.11555989583333333[0m
+   - err_out_of_range: [92m411603[0m
+   - err_reduced_precision: [92m5[0m
+   - err_total: [92m411608[0m
+   - quant_err: [92m0.034576416015625[0m
+   - fault_err: [92m0.035888671875[0m
+   Injecting layers.6.conv1...
+
+   ===== layers.6.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34107[0m
+   - num_out_of_range: [92m2757[0m
+   - num_cont_representable: [92m34092[0m
+   - num_remaining: [92m15[0m
+   - range_time: [92m0.018838882446289062[0m
+   - cont_time: [92m0.02203965187072754[0m
+   - sparsity_time: [92m6.67572021484375e-06[0m
+   - cvm_time: [92m1.8763399124145508[0m
+   - total_time: [92m1.9172251224517822[0m
+   - num_fawdable: [92m34104[0m
+   - num_cvm: [92m2760[0m
+   - num_cvm_in_remaining: [92m3[0m
+   - num_fawd_in_remaining: [92m12[0m
+   - perc_fawdable: [92m0.9251302083333334[0m
+   - perc_cvm: [92m0.07486979166666667[0m
+   - err_out_of_range: [92m250861[0m
+   - err_reduced_precision: [92m3[0m
+   - err_total: [92m250864[0m
+   - quant_err: [92m0.046142578125[0m
+   - fault_err: [92m0.047119140625[0m
+   Injecting layers.6.conv0...
+
+   ===== layers.6.conv0 =====
+   - num_q_codes: [92m18432[0m
+   - num_in_range: [92m15858[0m
+   - num_out_of_range: [92m2574[0m
+   - num_cont_representable: [92m15852[0m
+   - num_remaining: [92m6[0m
+   - range_time: [92m0.026404857635498047[0m
+   - cont_time: [92m0.004964351654052734[0m
+   - sparsity_time: [92m5.0067901611328125e-06[0m
+   - cvm_time: [92m2.092879295349121[0m
+   - total_time: [92m2.124253511428833[0m
+   - num_fawdable: [92m15854[0m
+   - num_cvm: [92m2578[0m
+   - num_cvm_in_remaining: [92m4[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8601345486111112[0m
+   - perc_cvm: [92m0.1398654513888889[0m
+   - err_out_of_range: [92m240761[0m
+   - err_reduced_precision: [92m6[0m
+   - err_total: [92m240767[0m
+   - quant_err: [92m0.0350341796875[0m
+   - fault_err: [92m0.036712646484375[0m
+   Injecting layers.5.conv1...
+
+   ===== layers.5.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8246[0m
+   - num_out_of_range: [92m970[0m
+   - num_cont_representable: [92m8241[0m
+   - num_remaining: [92m5[0m
+   - range_time: [92m0.0038361549377441406[0m
+   - cont_time: [92m0.0036437511444091797[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m1.8456761837005615[0m
+   - total_time: [92m1.8531594276428223[0m
+   - num_fawdable: [92m8243[0m
+   - num_cvm: [92m973[0m
+   - num_cvm_in_remaining: [92m3[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8944227430555556[0m
+   - perc_cvm: [92m0.10557725694444445[0m
+   - err_out_of_range: [92m90784[0m
+   - err_reduced_precision: [92m3[0m
+   - err_total: [92m90787[0m
+   - quant_err: [92m0.049957275390625[0m
+   - fault_err: [92m0.051666259765625[0m
+   Injecting layers.5.conv0...
+
+   ===== layers.5.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7885[0m
+   - num_out_of_range: [92m1331[0m
+   - num_cont_representable: [92m7878[0m
+   - num_remaining: [92m7[0m
+   - range_time: [92m0.002657651901245117[0m
+   - cont_time: [92m0.0013315677642822266[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.2788960933685303[0m
+   - total_time: [92m2.282888650894165[0m
+   - num_fawdable: [92m7885[0m
+   - num_cvm: [92m1331[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m7[0m
+   - perc_fawdable: [92m0.8555772569444444[0m
+   - perc_cvm: [92m0.14442274305555555[0m
+   - err_out_of_range: [92m129272[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m129272[0m
+   - quant_err: [92m0.0305023193359375[0m
+   - fault_err: [92m0.03216552734375[0m
+   Injecting layers.4.conv1...
+
+   ===== layers.4.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8396[0m
+   - num_out_of_range: [92m820[0m
+   - num_cont_representable: [92m8392[0m
+   - num_remaining: [92m4[0m
+   - range_time: [92m0.0026030540466308594[0m
+   - cont_time: [92m0.0013308525085449219[0m
+   - sparsity_time: [92m2.384185791015625e-06[0m
+   - cvm_time: [92m2.1121039390563965[0m
+   - total_time: [92m2.1160402297973633[0m
+   - num_fawdable: [92m8394[0m
+   - num_cvm: [92m822[0m
+   - num_cvm_in_remaining: [92m2[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.9108072916666666[0m
+   - perc_cvm: [92m0.08919270833333333[0m
+   - err_out_of_range: [92m73049[0m
+   - err_reduced_precision: [92m3[0m
+   - err_total: [92m73052[0m
+   - quant_err: [92m0.049468994140625[0m
+   - fault_err: [92m0.050750732421875[0m
+   Injecting layers.4.conv0...
+
+   ===== layers.4.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7880[0m
+   - num_out_of_range: [92m1336[0m
+   - num_cont_representable: [92m7877[0m
+   - num_remaining: [92m3[0m
+   - range_time: [92m0.0025932788848876953[0m
+   - cont_time: [92m0.001285552978515625[0m
+   - sparsity_time: [92m4.291534423828125e-06[0m
+   - cvm_time: [92m2.036519765853882[0m
+   - total_time: [92m2.040402889251709[0m
+   - num_fawdable: [92m7879[0m
+   - num_cvm: [92m1337[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8549262152777778[0m
+   - perc_cvm: [92m0.1450737847222222[0m
+   - err_out_of_range: [92m130594[0m
+   - err_reduced_precision: [92m2[0m
+   - err_total: [92m130596[0m
+   - quant_err: [92m0.03033447265625[0m
+   - fault_err: [92m0.032012939453125[0m
+   Injecting layers.3.conv1...
+
+   ===== layers.3.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8290[0m
+   - num_out_of_range: [92m926[0m
+   - num_cont_representable: [92m8288[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.0028057098388671875[0m
+   - cont_time: [92m0.0013875961303710938[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.166029214859009[0m
+   - total_time: [92m2.1702263355255127[0m
+   - num_fawdable: [92m8289[0m
+   - num_cvm: [92m927[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8994140625[0m
+   - perc_cvm: [92m0.1005859375[0m
+   - err_out_of_range: [92m86483[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m86484[0m
+   - quant_err: [92m0.04864501953125[0m
+   - fault_err: [92m0.0501708984375[0m
+   Injecting layers.3.conv0...
+
+   ===== layers.3.conv0 =====
+   - num_q_codes: [92m4608[0m
+   - num_in_range: [92m3811[0m
+   - num_out_of_range: [92m797[0m
+   - num_cont_representable: [92m3811[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0017883777618408203[0m
+   - cont_time: [92m0.0006825923919677734[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.5272369384765625e-05[0m
+   - total_time: [92m0.0024995803833007812[0m
+   - num_fawdable: [92m3811[0m
+   - num_cvm: [92m797[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8270399305555556[0m
+   - perc_cvm: [92m0.17296006944444445[0m
+   - err_out_of_range: [92m74436[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m74436[0m
+   - quant_err: [92m0.034637451171875[0m
+   - fault_err: [92m0.036865234375[0m
+   Injecting layers.2.conv1...
+
+   ===== layers.2.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2065[0m
+   - num_out_of_range: [92m239[0m
+   - num_cont_representable: [92m2065[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0008463859558105469[0m
+   - cont_time: [92m0.0003857612609863281[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m5.030632019042969e-05[0m
+   - total_time: [92m0.0012857913970947266[0m
+   - num_fawdable: [92m2065[0m
+   - num_cvm: [92m239[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8962673611111112[0m
+   - perc_cvm: [92m0.1037326388888889[0m
+   - err_out_of_range: [92m23928[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m23928[0m
+   - quant_err: [92m0.04669189453125[0m
+   - fault_err: [92m0.04833984375[0m
+   Injecting layers.2.conv0...
+
+   ===== layers.2.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1909[0m
+   - num_out_of_range: [92m395[0m
+   - num_cont_representable: [92m1909[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0009872913360595703[0m
+   - cont_time: [92m0.0004696846008300781[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m3.075599670410156e-05[0m
+   - total_time: [92m0.0014910697937011719[0m
+   - num_fawdable: [92m1909[0m
+   - num_cvm: [92m395[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8285590277777778[0m
+   - perc_cvm: [92m0.1714409722222222[0m
+   - err_out_of_range: [92m35840[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m35840[0m
+   - quant_err: [92m0.031494140625[0m
+   - fault_err: [92m0.03350830078125[0m
+   Injecting layers.1.conv1...
+
+   ===== layers.1.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2034[0m
+   - num_out_of_range: [92m270[0m
+   - num_cont_representable: [92m2033[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0008020401000976562[0m
+   - cont_time: [92m0.001529693603515625[0m
+   - sparsity_time: [92m4.0531158447265625e-06[0m
+   - cvm_time: [92m2.3874776363372803[0m
+   - total_time: [92m2.3898134231567383[0m
+   - num_fawdable: [92m2034[0m
+   - num_cvm: [92m270[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8828125[0m
+   - perc_cvm: [92m0.1171875[0m
+   - err_out_of_range: [92m26493[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m26493[0m
+   - quant_err: [92m0.047760009765625[0m
+   - fault_err: [92m0.049652099609375[0m
+   Injecting layers.1.conv0...
+
+   ===== layers.1.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1870[0m
+   - num_out_of_range: [92m434[0m
+   - num_cont_representable: [92m1868[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.0008172988891601562[0m
+   - cont_time: [92m0.0003764629364013672[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.350947856903076[0m
+   - total_time: [92m2.3521454334259033[0m
+   - num_fawdable: [92m1870[0m
+   - num_cvm: [92m434[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8116319444444444[0m
+   - perc_cvm: [92m0.18836805555555555[0m
+   - err_out_of_range: [92m39265[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m39265[0m
+   - quant_err: [92m0.0301055908203125[0m
+   - fault_err: [92m0.03228759765625[0m
+   Injecting layers.0.conv1...
+
+   ===== layers.0.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2080[0m
+   - num_out_of_range: [92m224[0m
+   - num_cont_representable: [92m2080[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0010466575622558594[0m
+   - cont_time: [92m0.0004830360412597656[0m
+   - sparsity_time: [92m4.5299530029296875e-06[0m
+   - cvm_time: [92m2.6702880859375e-05[0m
+   - total_time: [92m0.0015609264373779297[0m
+   - num_fawdable: [92m2080[0m
+   - num_cvm: [92m224[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.9027777777777778[0m
+   - perc_cvm: [92m0.09722222222222222[0m
+   - err_out_of_range: [92m19343[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m19343[0m
+   - quant_err: [92m0.04766845703125[0m
+   - fault_err: [92m0.0489501953125[0m
+   Injecting layers.0.conv0...
+
+   ===== layers.0.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1933[0m
+   - num_out_of_range: [92m371[0m
+   - num_cont_representable: [92m1933[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0029811859130859375[0m
+   - cont_time: [92m0.00039696693420410156[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.9802322387695312e-05[0m
+   - total_time: [92m0.0034112930297851562[0m
+   - num_fawdable: [92m1933[0m
+   - num_cvm: [92m371[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8389756944444444[0m
+   - perc_cvm: [92m0.16102430555555555[0m
+   - err_out_of_range: [92m37259[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m37259[0m
+   - quant_err: [92m0.03125[0m
+   - fault_err: [92m0.033355712890625[0m
+
+   Noise Injection Time: 11.74s
+
+   Trial 3/5 done: Top1: 85.34%, Top5: 99.48%, Loss: 0.48
+   Submitted layers.8.conv1...
+   Submitted layers.8.conv0...
+   Submitted layers.7.conv1...
+   Submitted layers.7.conv0...
+   Submitted layers.6.conv1...
+   Submitted layers.6.conv0...
+   Submitted layers.5.conv1...
+   Submitted layers.5.conv0...
+   Submitted layers.4.conv1...
+   Submitted layers.4.conv0...
+   Submitted layers.3.conv1...
+   Submitted layers.3.conv0...
+   Submitted layers.2.conv1...
+   Submitted layers.2.conv0...
+   Submitted layers.1.conv1...
+   Submitted layers.1.conv0...
+   Submitted layers.0.conv1...
+   Submitted layers.0.conv0...
+   Injecting layers.8.conv1...
+
+   ===== layers.8.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34321[0m
+   - num_out_of_range: [92m2543[0m
+   - num_cont_representable: [92m34312[0m
+   - num_remaining: [92m9[0m
+   - range_time: [92m0.009018659591674805[0m
+   - cont_time: [92m0.00496673583984375[0m
+   - sparsity_time: [92m5.245208740234375e-06[0m
+   - cvm_time: [92m2.385042905807495[0m
+   - total_time: [92m2.399033546447754[0m
+   - num_fawdable: [92m34318[0m
+   - num_cvm: [92m2546[0m
+   - num_cvm_in_remaining: [92m3[0m
+   - num_fawd_in_remaining: [92m6[0m
+   - perc_fawdable: [92m0.9309353298611112[0m
+   - perc_cvm: [92m0.0690646701388889[0m
+   - err_out_of_range: [92m235484[0m
+   - err_reduced_precision: [92m5[0m
+   - err_total: [92m235489[0m
+   - quant_err: [92m0.060150146484375[0m
+   - fault_err: [92m0.0614013671875[0m
+   Injecting layers.8.conv0...
+
+   ===== layers.8.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32761[0m
+   - num_out_of_range: [92m4103[0m
+   - num_cont_representable: [92m32746[0m
+   - num_remaining: [92m15[0m
+   - range_time: [92m0.008514881134033203[0m
+   - cont_time: [92m0.004935264587402344[0m
+   - sparsity_time: [92m3.5762786865234375e-06[0m
+   - cvm_time: [92m2.681164026260376[0m
+   - total_time: [92m2.694617748260498[0m
+   - num_fawdable: [92m32757[0m
+   - num_cvm: [92m4107[0m
+   - num_cvm_in_remaining: [92m4[0m
+   - num_fawd_in_remaining: [92m11[0m
+   - perc_fawdable: [92m0.8885904947916666[0m
+   - perc_cvm: [92m0.11140950520833333[0m
+   - err_out_of_range: [92m381602[0m
+   - err_reduced_precision: [92m8[0m
+   - err_total: [92m381610[0m
+   - quant_err: [92m0.0347900390625[0m
+   - fault_err: [92m0.0360107421875[0m
+   Injecting layers.7.conv1...
+
+   ===== layers.7.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m33973[0m
+   - num_out_of_range: [92m2891[0m
+   - num_cont_representable: [92m33952[0m
+   - num_remaining: [92m21[0m
+   - range_time: [92m0.009125232696533203[0m
+   - cont_time: [92m0.004940509796142578[0m
+   - sparsity_time: [92m4.5299530029296875e-06[0m
+   - cvm_time: [92m2.690002918243408[0m
+   - total_time: [92m2.704073190689087[0m
+   - num_fawdable: [92m33965[0m
+   - num_cvm: [92m2899[0m
+   - num_cvm_in_remaining: [92m8[0m
+   - num_fawd_in_remaining: [92m13[0m
+   - perc_fawdable: [92m0.9213595920138888[0m
+   - perc_cvm: [92m0.0786404079861111[0m
+   - err_out_of_range: [92m264512[0m
+   - err_reduced_precision: [92m15[0m
+   - err_total: [92m264527[0m
+   - quant_err: [92m0.052093505859375[0m
+   - fault_err: [92m0.05328369140625[0m
+   Injecting layers.7.conv0...
+
+   ===== layers.7.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32608[0m
+   - num_out_of_range: [92m4256[0m
+   - num_cont_representable: [92m32591[0m
+   - num_remaining: [92m17[0m
+   - range_time: [92m0.009404182434082031[0m
+   - cont_time: [92m0.0049932003021240234[0m
+   - sparsity_time: [92m5.0067901611328125e-06[0m
+   - cvm_time: [92m2.471452474594116[0m
+   - total_time: [92m2.4858548641204834[0m
+   - num_fawdable: [92m32599[0m
+   - num_cvm: [92m4265[0m
+   - num_cvm_in_remaining: [92m9[0m
+   - num_fawd_in_remaining: [92m8[0m
+   - perc_fawdable: [92m0.8843044704861112[0m
+   - perc_cvm: [92m0.1156955295138889[0m
+   - err_out_of_range: [92m399321[0m
+   - err_reduced_precision: [92m27[0m
+   - err_total: [92m399348[0m
+   - quant_err: [92m0.034576416015625[0m
+   - fault_err: [92m0.035858154296875[0m
+   Injecting layers.6.conv1...
+
+   ===== layers.6.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34069[0m
+   - num_out_of_range: [92m2795[0m
+   - num_cont_representable: [92m34047[0m
+   - num_remaining: [92m22[0m
+   - range_time: [92m0.009194374084472656[0m
+   - cont_time: [92m0.004891872406005859[0m
+   - sparsity_time: [92m5.4836273193359375e-06[0m
+   - cvm_time: [92m3.0042076110839844[0m
+   - total_time: [92m3.0182993412017822[0m
+   - num_fawdable: [92m34061[0m
+   - num_cvm: [92m2803[0m
+   - num_cvm_in_remaining: [92m8[0m
+   - num_fawd_in_remaining: [92m14[0m
+   - perc_fawdable: [92m0.9239637586805556[0m
+   - perc_cvm: [92m0.07603624131944445[0m
+   - err_out_of_range: [92m248667[0m
+   - err_reduced_precision: [92m16[0m
+   - err_total: [92m248683[0m
+   - quant_err: [92m0.046142578125[0m
+   - fault_err: [92m0.047119140625[0m
+   Injecting layers.6.conv0...
+
+   ===== layers.6.conv0 =====
+   - num_q_codes: [92m18432[0m
+   - num_in_range: [92m15848[0m
+   - num_out_of_range: [92m2584[0m
+   - num_cont_representable: [92m15841[0m
+   - num_remaining: [92m7[0m
+   - range_time: [92m0.0074443817138671875[0m
+   - cont_time: [92m0.003105640411376953[0m
+   - sparsity_time: [92m6.67572021484375e-06[0m
+   - cvm_time: [92m2.8453874588012695[0m
+   - total_time: [92m2.8559441566467285[0m
+   - num_fawdable: [92m15845[0m
+   - num_cvm: [92m2587[0m
+   - num_cvm_in_remaining: [92m3[0m
+   - num_fawd_in_remaining: [92m4[0m
+   - perc_fawdable: [92m0.8596462673611112[0m
+   - perc_cvm: [92m0.1403537326388889[0m
+   - err_out_of_range: [92m252101[0m
+   - err_reduced_precision: [92m5[0m
+   - err_total: [92m252106[0m
+   - quant_err: [92m0.0350341796875[0m
+   - fault_err: [92m0.036773681640625[0m
+   Injecting layers.5.conv1...
+
+   ===== layers.5.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8288[0m
+   - num_out_of_range: [92m928[0m
+   - num_cont_representable: [92m8284[0m
+   - num_remaining: [92m4[0m
+   - range_time: [92m0.0027687549591064453[0m
+   - cont_time: [92m0.0014166831970214844[0m
+   - sparsity_time: [92m3.5762786865234375e-06[0m
+   - cvm_time: [92m2.5690104961395264[0m
+   - total_time: [92m2.573199510574341[0m
+   - num_fawdable: [92m8287[0m
+   - num_cvm: [92m929[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m3[0m
+   - perc_fawdable: [92m0.8991970486111112[0m
+   - perc_cvm: [92m0.1008029513888889[0m
+   - err_out_of_range: [92m84116[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m84117[0m
+   - quant_err: [92m0.049957275390625[0m
+   - fault_err: [92m0.051513671875[0m
+   Injecting layers.5.conv0...
+
+   ===== layers.5.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7879[0m
+   - num_out_of_range: [92m1337[0m
+   - num_cont_representable: [92m7873[0m
+   - num_remaining: [92m6[0m
+   - range_time: [92m0.0026230812072753906[0m
+   - cont_time: [92m0.0013015270233154297[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.182213544845581[0m
+   - total_time: [92m2.1861419677734375[0m
+   - num_fawdable: [92m7875[0m
+   - num_cvm: [92m1341[0m
+   - num_cvm_in_remaining: [92m4[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8544921875[0m
+   - perc_cvm: [92m0.1455078125[0m
+   - err_out_of_range: [92m126916[0m
+   - err_reduced_precision: [92m8[0m
+   - err_total: [92m126924[0m
+   - quant_err: [92m0.0305023193359375[0m
+   - fault_err: [92m0.032135009765625[0m
+   Injecting layers.4.conv1...
+
+   ===== layers.4.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8393[0m
+   - num_out_of_range: [92m823[0m
+   - num_cont_representable: [92m8390[0m
+   - num_remaining: [92m3[0m
+   - range_time: [92m0.006342649459838867[0m
+   - cont_time: [92m0.0024771690368652344[0m
+   - sparsity_time: [92m4.5299530029296875e-06[0m
+   - cvm_time: [92m2.7467429637908936[0m
+   - total_time: [92m2.7555673122406006[0m
+   - num_fawdable: [92m8392[0m
+   - num_cvm: [92m824[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.9105902777777778[0m
+   - perc_cvm: [92m0.08940972222222222[0m
+   - err_out_of_range: [92m79536[0m
+   - err_reduced_precision: [92m2[0m
+   - err_total: [92m79538[0m
+   - quant_err: [92m0.049468994140625[0m
+   - fault_err: [92m0.05084228515625[0m
+   Injecting layers.4.conv0...
+
+   ===== layers.4.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7924[0m
+   - num_out_of_range: [92m1292[0m
+   - num_cont_representable: [92m7918[0m
+   - num_remaining: [92m6[0m
+   - range_time: [92m0.0025899410247802734[0m
+   - cont_time: [92m0.0012774467468261719[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.32071590423584[0m
+   - total_time: [92m2.324587106704712[0m
+   - num_fawdable: [92m7921[0m
+   - num_cvm: [92m1295[0m
+   - num_cvm_in_remaining: [92m3[0m
+   - num_fawd_in_remaining: [92m3[0m
+   - perc_fawdable: [92m0.8594835069444444[0m
+   - perc_cvm: [92m0.14051649305555555[0m
+   - err_out_of_range: [92m126494[0m
+   - err_reduced_precision: [92m7[0m
+   - err_total: [92m126501[0m
+   - quant_err: [92m0.03033447265625[0m
+   - fault_err: [92m0.031951904296875[0m
+   Injecting layers.3.conv1...
+
+   ===== layers.3.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8221[0m
+   - num_out_of_range: [92m995[0m
+   - num_cont_representable: [92m8219[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.01503753662109375[0m
+   - cont_time: [92m0.00131988525390625[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.819335460662842[0m
+   - total_time: [92m2.8356966972351074[0m
+   - num_fawdable: [92m8221[0m
+   - num_cvm: [92m995[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8920355902777778[0m
+   - perc_cvm: [92m0.10796440972222222[0m
+   - err_out_of_range: [92m89451[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m89451[0m
+   - quant_err: [92m0.04864501953125[0m
+   - fault_err: [92m0.05023193359375[0m
+   Injecting layers.3.conv0...
+
+   ===== layers.3.conv0 =====
+   - num_q_codes: [92m4608[0m
+   - num_in_range: [92m3800[0m
+   - num_out_of_range: [92m808[0m
+   - num_cont_representable: [92m3798[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.003495454788208008[0m
+   - cont_time: [92m0.0016295909881591797[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.4961724281311035[0m
+   - total_time: [92m2.5013012886047363[0m
+   - num_fawdable: [92m3800[0m
+   - num_cvm: [92m808[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8246527777777778[0m
+   - perc_cvm: [92m0.1753472222222222[0m
+   - err_out_of_range: [92m76618[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m76618[0m
+   - quant_err: [92m0.034637451171875[0m
+   - fault_err: [92m0.03692626953125[0m
+   Injecting layers.2.conv1...
+
+   ===== layers.2.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2056[0m
+   - num_out_of_range: [92m248[0m
+   - num_cont_representable: [92m2055[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.003982067108154297[0m
+   - cont_time: [92m0.00040221214294433594[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.6638495922088623[0m
+   - total_time: [92m2.6682372093200684[0m
+   - num_fawdable: [92m2055[0m
+   - num_cvm: [92m249[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8919270833333334[0m
+   - perc_cvm: [92m0.10807291666666667[0m
+   - err_out_of_range: [92m25437[0m
+   - err_reduced_precision: [92m5[0m
+   - err_total: [92m25442[0m
+   - quant_err: [92m0.04669189453125[0m
+   - fault_err: [92m0.048431396484375[0m
+   Injecting layers.2.conv0...
+
+   ===== layers.2.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1955[0m
+   - num_out_of_range: [92m349[0m
+   - num_cont_representable: [92m1954[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0008072853088378906[0m
+   - cont_time: [92m0.0003886222839355469[0m
+   - sparsity_time: [92m4.291534423828125e-06[0m
+   - cvm_time: [92m2.533768892288208[0m
+   - total_time: [92m2.5349690914154053[0m
+   - num_fawdable: [92m1955[0m
+   - num_cvm: [92m349[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8485243055555556[0m
+   - perc_cvm: [92m0.15147569444444445[0m
+   - err_out_of_range: [92m30638[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m30638[0m
+   - quant_err: [92m0.031494140625[0m
+   - fault_err: [92m0.033233642578125[0m
+   Injecting layers.1.conv1...
+
+   ===== layers.1.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2043[0m
+   - num_out_of_range: [92m261[0m
+   - num_cont_representable: [92m2041[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.0036818981170654297[0m
+   - cont_time: [92m0.0003609657287597656[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.173970937728882[0m
+   - total_time: [92m2.1780176162719727[0m
+   - num_fawdable: [92m2042[0m
+   - num_cvm: [92m262[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8862847222222222[0m
+   - perc_cvm: [92m0.11371527777777778[0m
+   - err_out_of_range: [92m25432[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m25433[0m
+   - quant_err: [92m0.047760009765625[0m
+   - fault_err: [92m0.049560546875[0m
+   Injecting layers.1.conv0...
+
+   ===== layers.1.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1908[0m
+   - num_out_of_range: [92m396[0m
+   - num_cont_representable: [92m1905[0m
+   - num_remaining: [92m3[0m
+   - range_time: [92m0.0007011890411376953[0m
+   - cont_time: [92m0.0032711029052734375[0m
+   - sparsity_time: [92m3.0994415283203125e-06[0m
+   - cvm_time: [92m2.3910071849823[0m
+   - total_time: [92m2.3949825763702393[0m
+   - num_fawdable: [92m1908[0m
+   - num_cvm: [92m396[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m3[0m
+   - perc_fawdable: [92m0.828125[0m
+   - perc_cvm: [92m0.171875[0m
+   - err_out_of_range: [92m38403[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m38403[0m
+   - quant_err: [92m0.0301055908203125[0m
+   - fault_err: [92m0.032257080078125[0m
+   Injecting layers.0.conv1...
+
+   ===== layers.0.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2068[0m
+   - num_out_of_range: [92m236[0m
+   - num_cont_representable: [92m2066[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.001989603042602539[0m
+   - cont_time: [92m0.0015819072723388672[0m
+   - sparsity_time: [92m4.0531158447265625e-06[0m
+   - cvm_time: [92m2.26055908203125[0m
+   - total_time: [92m2.264134645462036[0m
+   - num_fawdable: [92m2067[0m
+   - num_cvm: [92m237[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8971354166666666[0m
+   - perc_cvm: [92m0.10286458333333333[0m
+   - err_out_of_range: [92m24186[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m24187[0m
+   - quant_err: [92m0.04766845703125[0m
+   - fault_err: [92m0.049285888671875[0m
+   Injecting layers.0.conv0...
+
+   ===== layers.0.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1912[0m
+   - num_out_of_range: [92m392[0m
+   - num_cont_representable: [92m1911[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.003007173538208008[0m
+   - cont_time: [92m0.0014984607696533203[0m
+   - sparsity_time: [92m2.86102294921875e-06[0m
+   - cvm_time: [92m2.4707188606262207[0m
+   - total_time: [92m2.4752273559570312[0m
+   - num_fawdable: [92m1912[0m
+   - num_cvm: [92m392[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8298611111111112[0m
+   - perc_cvm: [92m0.1701388888888889[0m
+   - err_out_of_range: [92m39180[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m39180[0m
+   - quant_err: [92m0.03125[0m
+   - fault_err: [92m0.033447265625[0m
+
+   Noise Injection Time: 11.54s
+
+   Trial 4/5 done: Top1: 86.02%, Top5: 99.53%, Loss: 0.44
+   Submitted layers.8.conv1...
+   Submitted layers.8.conv0...
+   Submitted layers.7.conv1...
+   Submitted layers.7.conv0...
+   Submitted layers.6.conv1...
+   Submitted layers.6.conv0...
+   Submitted layers.5.conv1...
+   Submitted layers.5.conv0...
+   Submitted layers.4.conv1...
+   Submitted layers.4.conv0...
+   Submitted layers.3.conv1...
+   Submitted layers.3.conv0...
+   Submitted layers.2.conv1...
+   Submitted layers.2.conv0...
+   Submitted layers.1.conv1...
+   Submitted layers.1.conv0...
+   Submitted layers.0.conv1...
+   Submitted layers.0.conv0...
+   Injecting layers.8.conv1...
+
+   ===== layers.8.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34294[0m
+   - num_out_of_range: [92m2570[0m
+   - num_cont_representable: [92m34279[0m
+   - num_remaining: [92m15[0m
+   - range_time: [92m0.00903177261352539[0m
+   - cont_time: [92m0.005036354064941406[0m
+   - sparsity_time: [92m4.76837158203125e-06[0m
+   - cvm_time: [92m2.1991701126098633[0m
+   - total_time: [92m2.213243007659912[0m
+   - num_fawdable: [92m34287[0m
+   - num_cvm: [92m2577[0m
+   - num_cvm_in_remaining: [92m7[0m
+   - num_fawd_in_remaining: [92m8[0m
+   - perc_fawdable: [92m0.9300944010416666[0m
+   - perc_cvm: [92m0.06990559895833333[0m
+   - err_out_of_range: [92m242479[0m
+   - err_reduced_precision: [92m11[0m
+   - err_total: [92m242490[0m
+   - quant_err: [92m0.060150146484375[0m
+   - fault_err: [92m0.061431884765625[0m
+   Injecting layers.8.conv0...
+
+   ===== layers.8.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32759[0m
+   - num_out_of_range: [92m4105[0m
+   - num_cont_representable: [92m32743[0m
+   - num_remaining: [92m16[0m
+   - range_time: [92m0.015135765075683594[0m
+   - cont_time: [92m0.010622501373291016[0m
+   - sparsity_time: [92m5.7220458984375e-06[0m
+   - cvm_time: [92m2.382396936416626[0m
+   - total_time: [92m2.408160924911499[0m
+   - num_fawdable: [92m32753[0m
+   - num_cvm: [92m4111[0m
+   - num_cvm_in_remaining: [92m6[0m
+   - num_fawd_in_remaining: [92m10[0m
+   - perc_fawdable: [92m0.8884819878472222[0m
+   - perc_cvm: [92m0.11151801215277778[0m
+   - err_out_of_range: [92m386915[0m
+   - err_reduced_precision: [92m15[0m
+   - err_total: [92m386930[0m
+   - quant_err: [92m0.0347900390625[0m
+   - fault_err: [92m0.036041259765625[0m
+   Injecting layers.7.conv1...
+
+   ===== layers.7.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34070[0m
+   - num_out_of_range: [92m2794[0m
+   - num_cont_representable: [92m34056[0m
+   - num_remaining: [92m14[0m
+   - range_time: [92m0.0129852294921875[0m
+   - cont_time: [92m0.010066747665405273[0m
+   - sparsity_time: [92m5.7220458984375e-06[0m
+   - cvm_time: [92m2.7651259899139404[0m
+   - total_time: [92m2.7881836891174316[0m
+   - num_fawdable: [92m34064[0m
+   - num_cvm: [92m2800[0m
+   - num_cvm_in_remaining: [92m6[0m
+   - num_fawd_in_remaining: [92m8[0m
+   - perc_fawdable: [92m0.9240451388888888[0m
+   - perc_cvm: [92m0.0759548611111111[0m
+   - err_out_of_range: [92m252943[0m
+   - err_reduced_precision: [92m10[0m
+   - err_total: [92m252953[0m
+   - quant_err: [92m0.052093505859375[0m
+   - fault_err: [92m0.05322265625[0m
+   Injecting layers.7.conv0...
+
+   ===== layers.7.conv0 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m32509[0m
+   - num_out_of_range: [92m4355[0m
+   - num_cont_representable: [92m32501[0m
+   - num_remaining: [92m8[0m
+   - range_time: [92m0.014345645904541016[0m
+   - cont_time: [92m0.008089542388916016[0m
+   - sparsity_time: [92m5.0067901611328125e-06[0m
+   - cvm_time: [92m2.770321846008301[0m
+   - total_time: [92m2.792762041091919[0m
+   - num_fawdable: [92m32503[0m
+   - num_cvm: [92m4361[0m
+   - num_cvm_in_remaining: [92m6[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8817003038194444[0m
+   - perc_cvm: [92m0.11829969618055555[0m
+   - err_out_of_range: [92m420867[0m
+   - err_reduced_precision: [92m7[0m
+   - err_total: [92m420874[0m
+   - quant_err: [92m0.034576416015625[0m
+   - fault_err: [92m0.035919189453125[0m
+   Injecting layers.6.conv1...
+
+   ===== layers.6.conv1 =====
+   - num_q_codes: [92m36864[0m
+   - num_in_range: [92m34038[0m
+   - num_out_of_range: [92m2826[0m
+   - num_cont_representable: [92m34024[0m
+   - num_remaining: [92m14[0m
+   - range_time: [92m0.03130388259887695[0m
+   - cont_time: [92m0.013008832931518555[0m
+   - sparsity_time: [92m7.62939453125e-06[0m
+   - cvm_time: [92m2.761594533920288[0m
+   - total_time: [92m2.805914878845215[0m
+   - num_fawdable: [92m34032[0m
+   - num_cvm: [92m2832[0m
+   - num_cvm_in_remaining: [92m6[0m
+   - num_fawd_in_remaining: [92m8[0m
+   - perc_fawdable: [92m0.9231770833333334[0m
+   - perc_cvm: [92m0.07682291666666667[0m
+   - err_out_of_range: [92m257585[0m
+   - err_reduced_precision: [92m10[0m
+   - err_total: [92m257595[0m
+   - quant_err: [92m0.046142578125[0m
+   - fault_err: [92m0.047149658203125[0m
+   Injecting layers.6.conv0...
+
+   ===== layers.6.conv0 =====
+   - num_q_codes: [92m18432[0m
+   - num_in_range: [92m15838[0m
+   - num_out_of_range: [92m2594[0m
+   - num_cont_representable: [92m15830[0m
+   - num_remaining: [92m8[0m
+   - range_time: [92m0.012938976287841797[0m
+   - cont_time: [92m0.0025489330291748047[0m
+   - sparsity_time: [92m4.76837158203125e-06[0m
+   - cvm_time: [92m2.7011795043945312[0m
+   - total_time: [92m2.71667218208313[0m
+   - num_fawdable: [92m15836[0m
+   - num_cvm: [92m2596[0m
+   - num_cvm_in_remaining: [92m2[0m
+   - num_fawd_in_remaining: [92m6[0m
+   - perc_fawdable: [92m0.8591579861111112[0m
+   - perc_cvm: [92m0.1408420138888889[0m
+   - err_out_of_range: [92m251649[0m
+   - err_reduced_precision: [92m4[0m
+   - err_total: [92m251653[0m
+   - quant_err: [92m0.0350341796875[0m
+   - fault_err: [92m0.036773681640625[0m
+   Injecting layers.5.conv1...
+
+   ===== layers.5.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8295[0m
+   - num_out_of_range: [92m921[0m
+   - num_cont_representable: [92m8289[0m
+   - num_remaining: [92m6[0m
+   - range_time: [92m0.004120349884033203[0m
+   - cont_time: [92m0.0026748180389404297[0m
+   - sparsity_time: [92m4.0531158447265625e-06[0m
+   - cvm_time: [92m2.4156343936920166[0m
+   - total_time: [92m2.422433614730835[0m
+   - num_fawdable: [92m8295[0m
+   - num_cvm: [92m921[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m6[0m
+   - perc_fawdable: [92m0.9000651041666666[0m
+   - perc_cvm: [92m0.09993489583333333[0m
+   - err_out_of_range: [92m85117[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m85117[0m
+   - quant_err: [92m0.049957275390625[0m
+   - fault_err: [92m0.051544189453125[0m
+   Injecting layers.5.conv0...
+
+   ===== layers.5.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7863[0m
+   - num_out_of_range: [92m1353[0m
+   - num_cont_representable: [92m7861[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.00416874885559082[0m
+   - cont_time: [92m0.0015397071838378906[0m
+   - sparsity_time: [92m4.76837158203125e-06[0m
+   - cvm_time: [92m2.4151480197906494[0m
+   - total_time: [92m2.42086124420166[0m
+   - num_fawdable: [92m7863[0m
+   - num_cvm: [92m1353[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8531901041666666[0m
+   - perc_cvm: [92m0.14680989583333334[0m
+   - err_out_of_range: [92m136372[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m136372[0m
+   - quant_err: [92m0.0305023193359375[0m
+   - fault_err: [92m0.032257080078125[0m
+   Injecting layers.4.conv1...
+
+   ===== layers.4.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8428[0m
+   - num_out_of_range: [92m788[0m
+   - num_cont_representable: [92m8424[0m
+   - num_remaining: [92m4[0m
+   - range_time: [92m0.0024929046630859375[0m
+   - cont_time: [92m0.0013000965118408203[0m
+   - sparsity_time: [92m2.6226043701171875e-06[0m
+   - cvm_time: [92m2.535848617553711[0m
+   - total_time: [92m2.539644241333008[0m
+   - num_fawdable: [92m8427[0m
+   - num_cvm: [92m789[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m3[0m
+   - perc_fawdable: [92m0.9143880208333334[0m
+   - perc_cvm: [92m0.08561197916666667[0m
+   - err_out_of_range: [92m72019[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m72020[0m
+   - quant_err: [92m0.049468994140625[0m
+   - fault_err: [92m0.05072021484375[0m
+   Injecting layers.4.conv0...
+
+   ===== layers.4.conv0 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m7937[0m
+   - num_out_of_range: [92m1279[0m
+   - num_cont_representable: [92m7934[0m
+   - num_remaining: [92m3[0m
+   - range_time: [92m0.004134654998779297[0m
+   - cont_time: [92m0.0015010833740234375[0m
+   - sparsity_time: [92m4.5299530029296875e-06[0m
+   - cvm_time: [92m2.6188907623291016[0m
+   - total_time: [92m2.6245310306549072[0m
+   - num_fawdable: [92m7935[0m
+   - num_cvm: [92m1281[0m
+   - num_cvm_in_remaining: [92m2[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.8610026041666666[0m
+   - perc_cvm: [92m0.13899739583333334[0m
+   - err_out_of_range: [92m121709[0m
+   - err_reduced_precision: [92m3[0m
+   - err_total: [92m121712[0m
+   - quant_err: [92m0.03033447265625[0m
+   - fault_err: [92m0.031890869140625[0m
+   Injecting layers.3.conv1...
+
+   ===== layers.3.conv1 =====
+   - num_q_codes: [92m9216[0m
+   - num_in_range: [92m8206[0m
+   - num_out_of_range: [92m1010[0m
+   - num_cont_representable: [92m8202[0m
+   - num_remaining: [92m4[0m
+   - range_time: [92m0.002825498580932617[0m
+   - cont_time: [92m0.0012958049774169922[0m
+   - sparsity_time: [92m2.1457672119140625e-06[0m
+   - cvm_time: [92m2.5636484622955322[0m
+   - total_time: [92m2.5677719116210938[0m
+   - num_fawdable: [92m8205[0m
+   - num_cvm: [92m1011[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m3[0m
+   - perc_fawdable: [92m0.8902994791666666[0m
+   - perc_cvm: [92m0.10970052083333333[0m
+   - err_out_of_range: [92m99168[0m
+   - err_reduced_precision: [92m2[0m
+   - err_total: [92m99170[0m
+   - quant_err: [92m0.04864501953125[0m
+   - fault_err: [92m0.0504150390625[0m
+   Injecting layers.3.conv0...
+
+   ===== layers.3.conv0 =====
+   - num_q_codes: [92m4608[0m
+   - num_in_range: [92m3781[0m
+   - num_out_of_range: [92m827[0m
+   - num_cont_representable: [92m3781[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.001489400863647461[0m
+   - cont_time: [92m0.0007038116455078125[0m
+   - sparsity_time: [92m2.86102294921875e-06[0m
+   - cvm_time: [92m2.6226043701171875e-05[0m
+   - total_time: [92m0.002222299575805664[0m
+   - num_fawdable: [92m3781[0m
+   - num_cvm: [92m827[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8205295138888888[0m
+   - perc_cvm: [92m0.1794704861111111[0m
+   - err_out_of_range: [92m78685[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m78685[0m
+   - quant_err: [92m0.034637451171875[0m
+   - fault_err: [92m0.0369873046875[0m
+   Injecting layers.2.conv1...
+
+   ===== layers.2.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2059[0m
+   - num_out_of_range: [92m245[0m
+   - num_cont_representable: [92m2057[0m
+   - num_remaining: [92m2[0m
+   - range_time: [92m0.0007998943328857422[0m
+   - cont_time: [92m0.0003707408905029297[0m
+   - sparsity_time: [92m2.86102294921875e-06[0m
+   - cvm_time: [92m2.7193098068237305[0m
+   - total_time: [92m2.7204833030700684[0m
+   - num_fawdable: [92m2059[0m
+   - num_cvm: [92m245[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m2[0m
+   - perc_fawdable: [92m0.8936631944444444[0m
+   - perc_cvm: [92m0.10633680555555555[0m
+   - err_out_of_range: [92m25256[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m25256[0m
+   - quant_err: [92m0.04669189453125[0m
+   - fault_err: [92m0.04840087890625[0m
+   Injecting layers.2.conv0...
+
+   ===== layers.2.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1941[0m
+   - num_out_of_range: [92m363[0m
+   - num_cont_representable: [92m1941[0m
+   - num_remaining: [92m0[0m
+   - range_time: [92m0.0021500587463378906[0m
+   - cont_time: [92m0.0004911422729492188[0m
+   - sparsity_time: [92m4.291534423828125e-06[0m
+   - cvm_time: [92m5.054473876953125e-05[0m
+   - total_time: [92m0.0026960372924804688[0m
+   - num_fawdable: [92m1941[0m
+   - num_cvm: [92m363[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8424479166666666[0m
+   - perc_cvm: [92m0.15755208333333334[0m
+   - err_out_of_range: [92m32233[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m32233[0m
+   - quant_err: [92m0.031494140625[0m
+   - fault_err: [92m0.033294677734375[0m
+   Injecting layers.1.conv1...
+
+   ===== layers.1.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2032[0m
+   - num_out_of_range: [92m272[0m
+   - num_cont_representable: [92m2027[0m
+   - num_remaining: [92m5[0m
+   - range_time: [92m0.0007786750793457031[0m
+   - cont_time: [92m0.0005586147308349609[0m
+   - sparsity_time: [92m3.5762786865234375e-06[0m
+   - cvm_time: [92m2.4514389038085938[0m
+   - total_time: [92m2.452779769897461[0m
+   - num_fawdable: [92m2030[0m
+   - num_cvm: [92m274[0m
+   - num_cvm_in_remaining: [92m2[0m
+   - num_fawd_in_remaining: [92m3[0m
+   - perc_fawdable: [92m0.8810763888888888[0m
+   - perc_cvm: [92m0.1189236111111111[0m
+   - err_out_of_range: [92m25357[0m
+   - err_reduced_precision: [92m4[0m
+   - err_total: [92m25361[0m
+   - quant_err: [92m0.047760009765625[0m
+   - fault_err: [92m0.049560546875[0m
+   Injecting layers.1.conv0...
+
+   ===== layers.1.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1915[0m
+   - num_out_of_range: [92m389[0m
+   - num_cont_representable: [92m1914[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.001988649368286133[0m
+   - cont_time: [92m0.0015277862548828125[0m
+   - sparsity_time: [92m3.5762786865234375e-06[0m
+   - cvm_time: [92m2.532731771469116[0m
+   - total_time: [92m2.5362517833709717[0m
+   - num_fawdable: [92m1914[0m
+   - num_cvm: [92m390[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8307291666666666[0m
+   - perc_cvm: [92m0.16927083333333334[0m
+   - err_out_of_range: [92m36224[0m
+   - err_reduced_precision: [92m2[0m
+   - err_total: [92m36226[0m
+   - quant_err: [92m0.0301055908203125[0m
+   - fault_err: [92m0.032135009765625[0m
+   Injecting layers.0.conv1...
+
+   ===== layers.0.conv1 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m2077[0m
+   - num_out_of_range: [92m227[0m
+   - num_cont_representable: [92m2076[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0009353160858154297[0m
+   - cont_time: [92m0.0004341602325439453[0m
+   - sparsity_time: [92m3.814697265625e-06[0m
+   - cvm_time: [92m2.5786938667297363[0m
+   - total_time: [92m2.5800671577453613[0m
+   - num_fawdable: [92m2077[0m
+   - num_cvm: [92m227[0m
+   - num_cvm_in_remaining: [92m0[0m
+   - num_fawd_in_remaining: [92m1[0m
+   - perc_fawdable: [92m0.9014756944444444[0m
+   - perc_cvm: [92m0.09852430555555555[0m
+   - err_out_of_range: [92m20730[0m
+   - err_reduced_precision: [92m0[0m
+   - err_total: [92m20730[0m
+   - quant_err: [92m0.04766845703125[0m
+   - fault_err: [92m0.049072265625[0m
+   Injecting layers.0.conv0...
+
+   ===== layers.0.conv0 =====
+   - num_q_codes: [92m2304[0m
+   - num_in_range: [92m1928[0m
+   - num_out_of_range: [92m376[0m
+   - num_cont_representable: [92m1927[0m
+   - num_remaining: [92m1[0m
+   - range_time: [92m0.0007569789886474609[0m
+   - cont_time: [92m0.0003731250762939453[0m
+   - sparsity_time: [92m3.337860107421875e-06[0m
+   - cvm_time: [92m2.4092326164245605[0m
+   - total_time: [92m2.4103660583496094[0m
+   - num_fawdable: [92m1927[0m
+   - num_cvm: [92m377[0m
+   - num_cvm_in_remaining: [92m1[0m
+   - num_fawd_in_remaining: [92m0[0m
+   - perc_fawdable: [92m0.8363715277777778[0m
+   - perc_cvm: [92m0.1636284722222222[0m
+   - err_out_of_range: [92m36053[0m
+   - err_reduced_precision: [92m1[0m
+   - err_total: [92m36054[0m
+   - quant_err: [92m0.03125[0m
+   - fault_err: [92m0.03326416015625[0m
+
+   Noise Injection Time: 11.90s
+
+   Trial 5/5 done: Top1: 85.36%, Top5: 99.40%, Loss: 0.47

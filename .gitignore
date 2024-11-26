@@ -1,0 +1,9 @@
+_test.ipynb
+_test.py
+_pretrained/
+_logs/
+logs/
+__pycache__/
+*/__pycache__
+*.py[cod]
+.aider*
