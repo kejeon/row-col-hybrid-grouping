@@ -1,18 +1,18 @@
 import numpy as np
 import time
 
-# from .fawd.fawd_numba import fawd_for_list_of_q, fawd_for_list_of_q_numba
-from .fawd.fawd_numba import fawd_for_list_of_q_numba_refactored as fawd_for_list_of_q_numba
-from .cvm.cvm_numba import cvm_solve_multiple_parallel
+# from .fawd.fawd_numba import fawd_for_list_of_q_refactored as fawd_for_list_of_q
+# from .fawd.fawd_numba import fawd_for_list_of_q_numba_refactored as fawd_for_list_of_q_numba
+from .fawd_numba import fawd_for_list_of_q_numba, fawd_for_list_of_q
 from .cvx.gurobi_free import GurobiOptimizer, gurobi_solve_multiple_parallel, gurobi_solve_multiple
 from .cvx.gurobi_sparsify import gurobi_solve_multiple_parallel as gurobi_sparsify_solve_multiple_parallel
 from .cvx.gurobi_sparsify import gurobi_solve_multiple as gurobi_sparsify_solve_multiple
 
 from rc_grouping.rccodes import RcCodes, gen_conversion_vector
 
-from .cvx.gurobi_refactored import gurobi_solve_multiple as gurobi_solve_multiple_refactored
-from .cvx.gurobi_refactored import gurobi_solve_multiple_parallel as gurobi_solve_multiple_parallel_refactored
-from .cvx.gurobi_refactored import gurobi_fawd, gurobi_cvm_relaxed, gurobi_cvm, gurobi_cvm_int
+from .ilp_solver import gurobi_solve_multiple as gurobi_solve_multiple_refactored
+from .ilp_solver import gurobi_solve_multiple_parallel as gurobi_solve_multiple_parallel_refactored
+from .ilp_solver import gurobi_fawd, gurobi_cvm_relaxed, gurobi_cvm, gurobi_cvm_int
 
 
 def c_fault_free_solve_refactored(q_codes, codebook, faultmaps, decomposer_numba, num_pools):
@@ -77,67 +77,6 @@ def c_fault_free_solve_refactored(q_codes, codebook, faultmaps, decomposer_numba
 
     return fawd_rc, fawd_matched, stats
 
-def c_fault_free_solve(q_codes, codebook, faultmaps, decomposer_numba, num_pools):
-    tic = time.time()
-    if decomposer_numba.decomp_dict_rc is None:
-        decomposer_numba.decomp_dict_rc = decomposer_numba._gen_decomp_dict_rc()
-
-    C = codebook.C
-    R = codebook.R
-    R_start = codebook.R_start
-    mem_q_lvl = codebook.L
-    shift_base = codebook.b_shift
-
-    tic_fawd = time.time()
-    fawd_rc, _, fawd_matched, _, _ = fawd_for_list_of_q(q_codes, codebook, faultmaps, decomposer_numba)
-    toc_fawd = time.time()
-    fawd_time = toc_fawd - tic_fawd
-
-    unmatched = np.logical_not(fawd_matched)
-    unmatched_all_faults = faultmaps.map_all_faults_list[unmatched]
-    unmatched_saf0 = faultmaps.map_saf0_list[unmatched]
-    unmatched_saf1 = faultmaps.map_saf1_list[unmatched]
-    unmatched_q_codes = q_codes[unmatched]
-
-    rank_vec = gen_conversion_vector(C, shift_base)
-    max_q_code = codebook.q_code[-1]
-
-    tic_cvx = time.time()
-    # if unmatched is not empty, solve with cvx
-    if np.sum(unmatched) > 0:
-        if num_pools == 1:
-            cvx_rc = gurobi_solve_multiple(
-                unmatched_all_faults, 
-                unmatched_saf0, 
-                unmatched_q_codes, 
-                GurobiOptimizer,
-                C, R, mem_q_lvl, R_start, rank_vec, max_q_code)
-        elif num_pools > 1:
-            cvx_rc = gurobi_solve_multiple_parallel(
-                unmatched_all_faults, 
-                unmatched_saf0, 
-                unmatched_q_codes, 
-                GurobiOptimizer,
-                C, R, mem_q_lvl, R_start, rank_vec, max_q_code, num_pools=num_pools)
-        else:
-            raise ValueError('num_pools must be greater than 0')
-        fawd_rc[unmatched] = cvx_rc
-        
-    toc_cvx = time.time()
-    cvx_time = toc_cvx - tic_cvx
-    total_time = toc_cvx - tic
-
-    stats = {
-        'num_q_codes': len(q_codes),
-        'num_matched': np.sum(fawd_matched),
-        'num_unmatched': len(q_codes) - np.sum(fawd_matched),
-        'perc_matched': float(np.sum(fawd_matched) / len(q_codes))*100,
-        'fawd_time': fawd_time,
-        'cvx_time': cvx_time,
-        'total_time': total_time
-    }
-
-    return fawd_rc, fawd_matched, stats
 
 def c_fault_free_adv_solve(q_codes, codebook, faultmaps, decomposer_numba, num_pools, bypass_fawd=False):
     C = codebook.C
@@ -277,52 +216,3 @@ def c_fault_free_adv_solve(q_codes, codebook, faultmaps, decomposer_numba, num_p
     # }
 
     return final_rc, None, stats
-
-def fault_free_solve(q_codes, codebook, faultmaps, decomposer_numba, num_pools):
-    tic = time.time()
-
-    C = codebook.C
-    R = codebook.R
-    R_start = codebook.R_start
-    mem_q_lvl = codebook.L
-    shift_base = codebook.b_shift
-
-    tic_fawd = time.time()
-    fawd_rc, _, fawd_matched, _, _ = fawd_for_list_of_q(q_codes, codebook, faultmaps, decomposer_numba)
-    toc_fawd = time.time()
-    fawd_time = toc_fawd - tic_fawd
-
-    unmatched = np.logical_not(fawd_matched)
-    unmatched_all_faults = faultmaps.map_all_faults_list[unmatched]
-    unmatched_saf0 = faultmaps.map_saf0_list[unmatched]
-    unmatched_q_codes = q_codes[unmatched]
-
-    rank_vec = gen_conversion_vector(C, shift_base)
-    max_q_code = codebook.q_code[-1]
-
-    tic_cvm = time.time()
-    cvm_rc = cvm_solve_multiple_parallel(
-        unmatched_all_faults,
-        unmatched_saf0,
-        unmatched_q_codes,
-        codebook.rc_code,
-        codebook.calc_q_code_single,
-        mem_q_lvl,
-        num_pools=num_pools
-    )
-    toc_cvm = time.time()
-    cvm_time = toc_cvm - tic_cvm
-
-    fawd_rc[unmatched] = cvm_rc
-
-    toc = time.time()
-    total_time = toc - tic
-
-    stats = {
-        'perc_matched': float(np.sum(fawd_matched) / len(q_codes))*100,
-        'fawd_time': fawd_time,
-        'cvm_time': cvm_time,
-        'total_time': total_time
-    }
-
-    return fawd_rc, fawd_matched, stats

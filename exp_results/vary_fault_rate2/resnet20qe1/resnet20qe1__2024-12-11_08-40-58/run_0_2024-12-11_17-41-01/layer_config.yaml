@@ -1,0 +1,76 @@
+layers.0.conv0:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: &id001
+    name: R1C4
+    num_col_grouping: 4
+    num_row_grouping: 1
+    r_start: 0
+layers.0.conv1:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.1.conv0:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.1.conv1:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.2.conv0:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.2.conv1:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.3.conv0:
+  num_cycle: 294912.0
+  precision: 256
+  rc_config: *id001
+layers.3.conv1:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.4.conv0:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.4.conv1:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.5.conv0:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.5.conv1:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.6.conv0:
+  num_cycle: 294912.0
+  precision: 256
+  rc_config: *id001
+layers.6.conv1:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.7.conv0:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.7.conv1:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.8.conv0:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001
+layers.8.conv1:
+  num_cycle: 147456.0
+  precision: 256
+  rc_config: *id001

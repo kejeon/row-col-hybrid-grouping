@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.optim
 
-import os
 import gc
 import numpy as np
 import pandas as pd
@@ -17,7 +16,7 @@ from cycle_calc import identify_best_RC_config
 from rc_grouping.rccodes import RcCodes
 from rc_grouping.faultmaps import FaultMaps
 from rc_grouping.decomp_numba import Decomp
-from c_fault_free.utils.test_utils import compute_faulty_q_code, compute_residual_multiple
+# from c_fault_free.utils.test_utils import compute_faulty_q_code, compute_residual_multiple
 
 from utils.nn_utils import get_layer_by_name, set_precision
 from utils.nn_utils import quantize_conv2d, q_freeze_conv2d, q_unfreeze_conv2d
@@ -47,11 +46,11 @@ def main(my_p_fault, my_model, exp_base_path=None, skip_layer=None,
     gc.disable()
 
     # set exp configurations
-    NUM_TRIAL = 5
+    NUM_TRIAL = 10
     nn_config = exp_utils.base_nn_config.copy()
     nn_config['model'] = my_model
     nn_config['num_workers'] = 32
-    nn_config['lead_gpu_idx'] = 0
+    nn_config['lead_gpu_idx'] = 2
     nn_config['all_gpu_idx'] = [nn_config['lead_gpu_idx']]
     nn_config['batch_size'] = 512
     nn_config['acti_bit'] = [8]
@@ -70,10 +69,10 @@ def main(my_p_fault, my_model, exp_base_path=None, skip_layer=None,
     iter_configs = iter_imc_config_4col_simple.copy()
     iter_configs = {
         'rc_config': [
-            # [R1C4],
+            [R1C4],
             # [R2C1],
-            [R2C4],
-            # [R2C2],
+            # [R2C4],
+            [R2C2],
             # [R1C4, R2C4],
             # [R1C4, R2C2, R2C4],
         ]
@@ -320,7 +319,7 @@ def run_exp(imc_config, model, act_dim_dict, num_trial, load_val, val_loader,
 
     return final_result
 
-def inject_noise_parallel(imc_config, layer_config, model, codebook_dict, decomposer_dict, faultmaps_dict, skip_layer=None):
+def inject_noise(imc_config, layer_config, model, codebook_dict, decomposer_dict, faultmaps_dict, skip_layer=None):
     total_stats = {}
     futures = []
     avg_residual_list = []
@@ -438,64 +437,61 @@ def inject_noise_single(layer_name, imc_config, w_q_int, scaling_factor, codeboo
     return layer_name, w_q_faulty, err_total, stats
 
 
-def inject_noise_no_parallel(imc_config, layer_config, model, codebook_dict, decomposer_dict, faultmaps_dict):
-    total_stats = {}
-    tqdm_layer_config = tqdm(layer_config)
-    for layer_name, rc_config in tqdm_layer_config:
-    # for layer_name, rc_config in layer_config:
-        tqdm_layer_config.set_description(f"Processing {layer_name}")
-        config_name = rc_config['name']
-        codebook = codebook_dict[config_name]
-        decomposer = decomposer_dict[config_name]
-        faultmaps = faultmaps_dict[config_name]
+# def inject_noise_no_parallel(imc_config, layer_config, model, codebook_dict, decomposer_dict, faultmaps_dict):
+#     total_stats = {}
+#     tqdm_layer_config = tqdm(layer_config)
+#     for layer_name, rc_config in tqdm_layer_config:
+#     # for layer_name, rc_config in layer_config:
+#         tqdm_layer_config.set_description(f"Processing {layer_name}")
+#         config_name = rc_config['name']
+#         codebook = codebook_dict[config_name]
+#         decomposer = decomposer_dict[config_name]
+#         faultmaps = faultmaps_dict[config_name]
 
-        layer = get_layer_by_name(model, layer_name)
-        w_q_int = layer.w_q_int
-        scaling_factor = (layer.scaling_factor).detach().cpu().numpy()
-        # get number of elements in w_q_int
-        num_elements = w_q_int.numel()
-        w_q_int_shape = w_q_int.shape
+#         layer = get_layer_by_name(model, layer_name)
+#         w_q_int = layer.w_q_int
+#         scaling_factor = (layer.scaling_factor).detach().cpu().numpy()
+#         # get number of elements in w_q_int
+#         num_elements = w_q_int.numel()
+#         w_q_int_shape = w_q_int.shape
 
-        # move w_q_int to cpu and make it into np array
-        w_q_int_np = w_q_int.detach().cpu().numpy()
-        w_q_int_np = w_q_int_np.reshape(-1,1).astype(np.int64)
+#         # move w_q_int to cpu and make it into np array
+#         w_q_int_np = w_q_int.detach().cpu().numpy()
+#         w_q_int_np = w_q_int_np.reshape(-1,1).astype(np.int64)
 
-        # decompose 
-        faultmaps.gen_fault_map(num_elements)
-        tic = time()
-        final_rc, fawd_matched, stats = c_fault_free_solve(
-            w_q_int_np, codebook, faultmaps, decomposer, 
-            imc_config['num_parallel_processes'])
-        toc = time()
-        elapsed_time = toc - tic
+#         # decompose 
+#         faultmaps.gen_fault_map(num_elements)
+#         tic = time()
+#         final_rc, fawd_matched, stats = c_fault_free_solve(
+#             w_q_int_np, codebook, faultmaps, decomposer, 
+#             imc_config['num_parallel_processes'])
+#         toc = time()
+#         elapsed_time = toc - tic
 
-        total_stats[layer_name] = stats
+#         total_stats[layer_name] = stats
 
-        # convert the rc code back to q_code
-        w_q_int_faulty = np.zeros_like(w_q_int_np)
-        for i in range(num_elements):
-            rc_code = final_rc[i]
-            all_fualts = faultmaps.map_all_faults_list[i]
-            saf0 = faultmaps.map_saf0_list[i]
-            w_q_int_faulty[i] = compute_faulty_q_code(
-                rc_code, all_fualts, saf0, codebook)
+#         # convert the rc code back to q_code
+#         w_q_int_faulty = np.zeros_like(w_q_int_np)
+#         for i in range(num_elements):
+#             rc_code = final_rc[i]
+#             all_fualts = faultmaps.map_all_faults_list[i]
+#             saf0 = faultmaps.map_saf0_list[i]
+#             w_q_int_faulty[i] = compute_faulty_q_code(
+#                 rc_code, all_fualts, saf0, codebook)
             
-        # compute the residual
-        avg_residual = np.mean(np.abs(w_q_int_np - w_q_int_faulty))
+#         # compute the residual
+#         avg_residual = np.mean(np.abs(w_q_int_np - w_q_int_faulty))
 
-        # inject the faulty q code back to the layer
-        w_q_int_faulty = w_q_int_faulty.reshape(w_q_int_shape)
-        w_q_faulty = w_q_int_faulty * scaling_factor
-        w_q_faulty = torch.tensor(w_q_faulty, dtype=torch.float16).cuda()
-        layer.w_q = w_q_faulty
+#         # inject the faulty q code back to the layer
+#         w_q_int_faulty = w_q_int_faulty.reshape(w_q_int_shape)
+#         w_q_faulty = w_q_int_faulty * scaling_factor
+#         w_q_faulty = torch.tensor(w_q_faulty, dtype=torch.float16).cuda()
+#         layer.w_q = w_q_faulty
 
-        tqdm_layer_config.set_postfix(
-            elapsed_time=elapsed_time, avg_residual=avg_residual)
+#         tqdm_layer_config.set_postfix(
+#             elapsed_time=elapsed_time, avg_residual=avg_residual)
 
-    return model, total_stats
-
-inject_noise = inject_noise_parallel
-
+#     return model, total_stats
 
 if __name__ == '__main__':
     set_start_method('spawn')

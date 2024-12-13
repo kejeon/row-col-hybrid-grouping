@@ -1,0 +1,14 @@
+cell_precision: 4
+imc_array_dim: 64
+num_parallel_processes: 4
+p_fault: null
+p_saf0: 0.0175
+p_saf1: 0.0904
+rc_config:
+- name: R1C4
+  num_col_grouping: 4
+  num_row_grouping: 1
+  r_start: 0
+rc_config_prec:
+- 256
+shift_base: 4

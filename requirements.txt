@@ -1,16 +1,7 @@
 numba
 numpy
-cvxpy
 gurobipy
 gpustat
 tensorboardX
 tqdm
 pandas
-
-# AIDER-CHAT
-anthropic[bedrock]
-aider-chat
-backoff
-openai
-pypdf
-pymupdf4llm
