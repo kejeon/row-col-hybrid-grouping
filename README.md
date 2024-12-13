@@ -37,10 +37,10 @@ To use the Gurobi Solver, you need to obtain a license. Fortunately, Gurobi offe
 
 ### Download Prerained Models
 Below are the pretrained models that we used in our experiments. 
-* ResNet-20 (CIFAR10)
-* ResNet-18 (ImageNet)
-* ResNet-50 (ImageNet)
-* VGG16-bn (ImageNet)
+* [ResNet-20](https://drive.google.com/file/d/1-17bNioG0Dd9oN6uz-EQy1RBRSxUkzMz/view?usp=sharing) (CIFAR10)
+* [ResNet-18](https://drive.google.com/file/d/1-1pBLRrDc63ff7HmYmoJSQsI2QnR2yg5/view?usp=sharing) (ImageNet)
+* [ResNet-50](https://drive.google.com/file/d/1-A304sGNfa_oTt4wsMcSrm11J1UFPwOO/view?usp=sharing) (ImageNet)
+* [VGG16-bn]() (ImageNet)
 
 ### Running the code
 1. Place your pre-trained models in the `_pretrained/` directory (you can download them from the "Pretrained models" section below)

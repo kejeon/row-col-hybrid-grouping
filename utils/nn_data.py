@@ -2,7 +2,6 @@ from .utils import load_dict
 
 dataset_model_dict = {
     'vgg16q': 'imagenet',
-    'mobilenetv2q': 'imagenet',
     'resnet50q': 'imagenet',
     'resnet18q': 'imagenet',
     'resnet20q': 'cifar10',
@@ -11,7 +10,6 @@ dataset_model_dict = {
 
 pretrained_paths = {
     'vgg16q': './_pretrained/vgg16bn_epoch35.pth.tar',
-    'mobilenetv2q': './_pretrained/mobile_net_best.pth.tar',
     'resnet50q'  : './_pretrained/resnet50q_any_recursive.pth.tar',
     'resnet18q'  : './_pretrained/RN18Q_1248.pth.tar',
     'resnet20q'  : './_pretrained/RN20Q_1248_3567.pth.tar',
@@ -20,7 +18,6 @@ pretrained_paths = {
 
 parallel_settings = {
     'vgg16q': False,
-    'mobilenetv2q': True,
     'resnet50q': True,
     'resnet18q': False,
     'resnet20q': False,
