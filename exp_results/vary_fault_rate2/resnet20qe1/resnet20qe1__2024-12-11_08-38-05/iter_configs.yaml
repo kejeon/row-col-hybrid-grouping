@@ -1,5 +1,0 @@
-rc_config:
-- - name: R2C4
-    num_col_grouping: 4
-    num_row_grouping: 2
-    r_start: 1
